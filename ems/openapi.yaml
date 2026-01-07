@@ -1251,6 +1251,10 @@ components:
             $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
     InternalServerError:
       description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
     BadRequest:
       description: Bad Request
       content:
