@@ -15,80 +15,213 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background: linear-gradient(135deg, #D82F36 0%, #B8242D 100%);
             min-height: 100vh;
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 40px 20px;
-        }
-
-        header {
-            text-align: center;
-            color: white;
-            margin-bottom: 50px;
-        }
-
-        .logo {
-            width: auto;
-            height: 50px;
-            margin: 0 auto 20px;
-            display: block;
-        }
-
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.95;
-        }
-
-        .api-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
+            grid-template-columns: 280px 1fr;
+            gap: 40px;
+            align-items: start;
         }
 
-        .api-card {
+        /* Sidebar Navigation */
+        .sidebar {
+            position: sticky;
+            top: 20px;
             background: white;
             border-radius: 12px;
             padding: 30px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .sidebar h2 {
+            color: #D82F36;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .sidebar nav {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar nav a {
+            color: #444;
             text-decoration: none;
-            color: inherit;
+            padding: 10px 15px;
+            margin: 3px 0;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+        }
+
+        .sidebar nav a:hover {
+            background: #f8f8f8;
+            color: #D82F36;
+            padding-left: 20px;
+        }
+
+        .sidebar nav a.active {
+            background: linear-gradient(135deg, #D82F36 0%, #B8242D 100%);
+            color: white;
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .main-content {
+            background: white;
+            border-radius: 12px;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            min-height: 80vh;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .logo {
+            width: auto;
+            height: 60px;
+            margin: 0 auto 25px;
             display: block;
         }
 
-        .api-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .api-card h2 {
+        .header-section h1 {
             color: #D82F36;
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-        }
-
-        .api-card .version {
-            color: #666;
-            font-size: 0.9rem;
+            font-size: 2.8rem;
             margin-bottom: 15px;
         }
 
-        .api-card p {
-            color: #444;
-            line-height: 1.6;
-            margin-bottom: 20px;
+        .header-section p {
+            color: #666;
+            font-size: 1.15rem;
         }
 
-        .api-card .btn {
+        /* Content Sections */
+        .content-section {
+            margin-bottom: 50px;
+            scroll-margin-top: 20px;
+        }
+
+        .content-section h2 {
+            color: #D82F36;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .content-section h2::before {
+            content: '';
+            width: 5px;
+            height: 30px;
+            background: linear-gradient(135deg, #D82F36 0%, #B8242D 100%);
+            margin-right: 15px;
+            border-radius: 3px;
+        }
+
+        .content-section h3 {
+            color: #333;
+            font-size: 1.5rem;
+            margin: 30px 0 15px 0;
+        }
+
+        .content-section p {
+            color: #444;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .content-section ul {
+            margin: 15px 0 15px 30px;
+        }
+
+        .content-section li {
+            color: #444;
+            margin: 8px 0;
+            line-height: 1.7;
+        }
+
+        .content-section a {
+            color: #D82F36;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s ease;
+        }
+
+        .content-section a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        .content-section pre {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border-left: 4px solid #D82F36;
+        }
+
+        .content-section code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        /* API Cards */
+        .api-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .api-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+        .api-item:hover {
+            border-color: #D82F36;
+            box-shadow: 0 5px 15px rgba(216, 47, 54, 0.1);
+        }
+
+        .api-item h4 {
+            color: #D82F36;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .api-item .version {
+            display: inline-block;
+            background: #D82F36;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+
+        .api-item p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .api-item a {
             display: inline-block;
             background: linear-gradient(135deg, #D82F36 0%, #B8242D 100%);
             color: white;
@@ -97,17 +230,21 @@
             text-decoration: none;
             font-weight: 600;
             transition: opacity 0.3s ease;
+            margin-top: 10px;
         }
 
-        .api-card .btn:hover {
+        .api-item a:hover {
             opacity: 0.9;
         }
 
+        /* Footer */
         footer {
+            grid-column: 1 / -1;
             text-align: center;
             color: white;
-            padding: 20px;
-            opacity: 0.9;
+            padding: 30px 20px;
+            opacity: 0.95;
+            margin-top: 30px;
         }
 
         footer a {
@@ -115,57 +252,397 @@
             text-decoration: underline;
         }
 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+
+        .loading::after {
+            content: '...';
+            animation: dots 1.5s steps(4, end) infinite;
+        }
+
+        @keyframes dots {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60%, 100% { content: '...'; }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
 
-            .api-cards {
+            .sidebar {
+                position: static;
+                padding: 20px;
+            }
+
+            .main-content {
+                padding: 30px;
+            }
+
+            .header-section h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .api-list {
                 grid-template-columns: 1fr;
+            }
+
+            .header-section h1 {
+                font-size: 1.8rem;
+            }
+
+            .content-section h2 {
+                font-size: 1.6rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <img src="header_logo.svg" alt="Vodafone Foundation" class="logo">
-            <h1>NG SOS API Documentation</h1>
-            <p class="subtitle">Comprehensive API documentation for all NG SOS servers</p>
-        </header>
+        <aside class="sidebar">
+            <h2>📚 Navigation</h2>
+            <nav id="toc">
+                <div class="loading">Loading</div>
+            </nav>
+        </aside>
 
-        <div id="home-view">
-            <div class="api-cards">
-                <a href="ems.html" target="_blank" class="api-card">
-                    <h2>Emergency Message Server</h2>
-                    <div class="version">Version 1.0.0</div>
-                    <p>The Emergency Message Server handles emergency message processing and management, including SMS reception and integration with emergency services.</p>
-                    <span class="btn">View Documentation →</span>
-                </a>
-
-                <a href="psap-connector.html" target="_blank" class="api-card">
-                    <h2>PSAP Connector Server</h2>
-                    <div class="version">Version 2.0.0</div>
-                    <p>The PSAP Connector Server provides connectivity between the NG SOS platform and Public Safety Answering Points (PSAPs).</p>
-                    <span class="btn">View Documentation →</span>
-                </a>
-
-                <a href="portal-url.html" target="_blank" class="api-card">
-                    <h2>Portal URL API</h2>
-                    <div class="version">Version 1.0.0</div>
-                    <p>The Portal URL API provides URLs and endpoints for the NG SOS portal, facilitating easy integration into third-party applications.</p>
-                    <span class="btn">View Documentation →</span>
-                </a>
+        <main class="main-content">
+            <div class="header-section">
+                <img src="header_logo.svg" alt="Vodafone Foundation" class="logo">
             </div>
-        </div>
+            <div id="content">
+                <div class="loading">Loading documentation</div>
+            </div>
+        </main>
 
         <footer>
-            <p>
-                NG SOS API Documentation | 
-                <a href="https://github.com/medicalit-eu/ng-sos-apidoc" target="_blank">GitHub Repository</a> | 
-                Contact: mdybal@medicalit.eu
-            </p>
+            <div id="footer-content"></div>
         </footer>
     </div>
+
+    <script>
+        // Simple markdown parser
+        function parseMarkdown(markdown) {
+            let html = markdown;
+            
+            // Convert headers
+            html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
+            html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
+            html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
+            
+            // Convert links [text](url)
+            html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+            
+            // Convert bold **text**
+            html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+            
+            // Convert italic *text*
+            html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+            
+            // Convert code blocks ```
+            html = html.replace(/```([^`]+)```/gs, '<pre><code>$1</code></pre>');
+            
+            // Convert inline code `code`
+            html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+            
+            // Split into lines for list and paragraph processing
+            const lines = html.split('\n');
+            const processed = [];
+            let inList = false;
+            let listItems = [];
+            
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i].trim();
+                
+                if (line.match(/^[-*] /)) {
+                    // List item
+                    if (!inList) {
+                        inList = true;
+                        listItems = [];
+                    }
+                    listItems.push('<li>' + line.replace(/^[-*] /, '') + '</li>');
+                } else {
+                    // End list if we were in one
+                    if (inList) {
+                        processed.push('<ul>' + listItems.join('') + '</ul>');
+                        listItems = [];
+                        inList = false;
+                    }
+                    
+                    // Add line
+                    if (line && !line.match(/^<h[123]>/) && !line.match(/^<pre>/) && !line.match(/^<\/pre>/)) {
+                        if (line.length > 0) {
+                            processed.push('<p>' + line + '</p>');
+                        }
+                    } else {
+                        processed.push(line);
+                    }
+                }
+            }
+            
+            // Close any open list
+            if (inList) {
+                processed.push('<ul>' + listItems.join('') + '</ul>');
+            }
+            
+            return processed.join('\n');
+        }
+
+        // Fetch and parse README.md
+        async function loadReadme() {
+            try {
+                const response = await fetch('README.md');
+                const markdown = await response.text();
+                
+                // Parse markdown to HTML
+                const html = parseMarkdown(markdown);
+                
+                // Process the content
+                processContent(html);
+                
+            } catch (error) {
+                document.getElementById('content').innerHTML = 
+                    '<p style="color: #D82F36;">Error loading documentation. Please check the README.md file.</p>';
+                console.error('Error loading README:', error);
+            }
+        }
+
+        function processContent(html) {
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = html;
+            
+            // Extract title and subtitle
+            const h1 = tempDiv.querySelector('h1');
+            const paragraphs = tempDiv.querySelectorAll('p');
+            const firstP = paragraphs[0];
+            
+            if (h1 && firstP) {
+                const headerSection = document.querySelector('.header-section');
+                const titleEl = document.createElement('h1');
+                titleEl.textContent = h1.textContent;
+                const subtitleEl = document.createElement('p');
+                subtitleEl.textContent = firstP.textContent;
+                
+                headerSection.appendChild(titleEl);
+                headerSection.appendChild(subtitleEl);
+                
+                // Remove from temp div
+                h1.remove();
+                firstP.remove();
+            }
+            
+            // Extract sections
+            const sections = [];
+            const h2Elements = tempDiv.querySelectorAll('h2');
+            
+            h2Elements.forEach((h2, index) => {
+                const sectionId = h2.textContent.toLowerCase()
+                    .replace(/[^\w\s]/g, '')
+                    .replace(/\s+/g, '-');
+                
+                const sectionDiv = document.createElement('div');
+                sectionDiv.className = 'content-section';
+                sectionDiv.id = sectionId;
+                
+                const sectionTitle = document.createElement('h2');
+                sectionTitle.textContent = h2.textContent;
+                sectionDiv.appendChild(sectionTitle);
+                
+                // Collect content until next h2
+                let currentElement = h2.nextElementSibling;
+                while (currentElement && currentElement.tagName !== 'H2') {
+                    const cloned = currentElement.cloneNode(true);
+                    sectionDiv.appendChild(cloned);
+                    currentElement = currentElement.nextElementSibling;
+                }
+                
+                sections.push({
+                    id: sectionId,
+                    title: h2.textContent,
+                    element: sectionDiv
+                });
+            });
+            
+            // Render sections
+            const contentDiv = document.getElementById('content');
+            contentDiv.innerHTML = '';
+            
+            sections.forEach(section => {
+                contentDiv.appendChild(section.element);
+            });
+            
+            // Handle special API section rendering
+            renderApiCards();
+            
+            // Build table of contents
+            buildTableOfContents(sections);
+            
+            // Extract footer content
+            extractFooter(tempDiv);
+        }
+
+        function renderApiCards() {
+            const apiSection = document.getElementById('-available-apis');
+            if (!apiSection) return;
+            
+            const h2 = apiSection.querySelector('h2');
+            const h3Elements = apiSection.querySelectorAll('h3');
+            
+            if (h3Elements.length === 0) return;
+            
+            // Create API cards container
+            const apiList = document.createElement('div');
+            apiList.className = 'api-list';
+            
+            h3Elements.forEach(h3 => {
+                const apiItem = document.createElement('div');
+                apiItem.className = 'api-item';
+                
+                // Get API name
+                const link = h3.querySelector('a');
+                const apiName = link ? link.textContent : h3.textContent;
+                
+                const title = document.createElement('h4');
+                title.textContent = apiName;
+                apiItem.appendChild(title);
+                
+                // Get content after h3
+                let nextEl = h3.nextElementSibling;
+                let description = '';
+                let version = '';
+                let docLink = '';
+                
+                while (nextEl && nextEl.tagName !== 'H3' && nextEl.tagName !== 'H2') {
+                    if (nextEl.tagName === 'P') {
+                        description = nextEl.textContent;
+                    } else if (nextEl.tagName === 'UL') {
+                        const items = nextEl.querySelectorAll('li');
+                        items.forEach(item => {
+                            const text = item.textContent;
+                            if (text.includes('Version:')) {
+                                version = text.replace(/.*Version:\s*/, '').trim();
+                            }
+                            const itemLink = item.querySelector('a');
+                            if (itemLink && itemLink.textContent.includes('View Documentation')) {
+                                docLink = itemLink.getAttribute('href');
+                            }
+                        });
+                    }
+                    nextEl = nextEl.nextElementSibling;
+                }
+                
+                if (version) {
+                    const versionEl = document.createElement('div');
+                    versionEl.className = 'version';
+                    versionEl.textContent = `Version ${version}`;
+                    apiItem.appendChild(versionEl);
+                }
+                
+                if (description) {
+                    const descEl = document.createElement('p');
+                    descEl.textContent = description;
+                    apiItem.appendChild(descEl);
+                }
+                
+                if (docLink) {
+                    const linkEl = document.createElement('a');
+                    linkEl.href = docLink;
+                    linkEl.target = '_blank';
+                    linkEl.textContent = 'View Documentation →';
+                    apiItem.appendChild(linkEl);
+                }
+                
+                apiList.appendChild(apiItem);
+            });
+            
+            // Clear section and rebuild
+            apiSection.innerHTML = '';
+            apiSection.appendChild(h2);
+            apiSection.appendChild(apiList);
+        }
+
+        function buildTableOfContents(sections) {
+            const toc = document.getElementById('toc');
+            toc.innerHTML = '';
+            
+            sections.forEach(section => {
+                const link = document.createElement('a');
+                link.href = `#${section.id}`;
+                link.textContent = section.title;
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    document.getElementById(section.id).scrollIntoView({ 
+                        behavior: 'smooth' 
+                    });
+                    
+                    // Update active state
+                    document.querySelectorAll('#toc a').forEach(a => a.classList.remove('active'));
+                    link.classList.add('active');
+                });
+                toc.appendChild(link);
+            });
+            
+            // Set first item as active
+            if (toc.firstChild) {
+                toc.firstChild.classList.add('active');
+            }
+            
+            // Update active state on scroll
+            setupScrollSpy(sections);
+        }
+
+        function setupScrollSpy(sections) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+                        document.querySelectorAll('#toc a').forEach(a => {
+                            a.classList.remove('active');
+                            if (a.getAttribute('href') === `#${id}`) {
+                                a.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, {
+                rootMargin: '-100px 0px -80% 0px'
+            });
+            
+            sections.forEach(section => {
+                observer.observe(section.element);
+            });
+        }
+
+        function extractFooter(tempDiv) {
+            const footerDiv = document.getElementById('footer-content');
+            
+            // Look for contact info in README
+            const allText = tempDiv.textContent;
+            const contactMatch = allText.match(/contact:?\s*([^\n]+)/i);
+            
+            let footerHTML = '<p>';
+            footerHTML += 'NG SOS API Documentation | ';
+            footerHTML += '<a href="https://github.com/medicalit-eu/ng-sos-apidoc" target="_blank">GitHub Repository</a>';
+            
+            if (contactMatch) {
+                footerHTML += ` | Contact: ${contactMatch[1].trim()}`;
+            }
+            
+            footerHTML += '</p>';
+            footerDiv.innerHTML = footerHTML;
+        }
+
+        // Load on page load
+        window.addEventListener('DOMContentLoaded', loadReadme);
+    </script>
 </body>
 </html>
