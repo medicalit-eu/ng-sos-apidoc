@@ -1224,7 +1224,7 @@
           "name": {
             "type": "string",
             "description": "Region name.",
-            "example": "Zlï¿½nskï¿½ kraj"
+            "example": "Zlínský kraj"
           }
         },
         "additionalProperties": false,
