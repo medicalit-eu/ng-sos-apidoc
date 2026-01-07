@@ -1,6 +1,17 @@
 openapi: 3.0.1
 info:
   title: NG SOS Psap Connector server
+  description: |
+    The NG SOS PSAP Connector Server provides connectivity and integration between the NG SOS platform and Public Safety Answering Points (PSAPs).
+    
+    ## Key Features
+    
+    - PSAP integration and connectivity
+    - Emergency call routing
+    - Incident management and region assignment
+    - Collaboration confirmation and rejection
+    - System information and about endpoints
+    - Secure authentication and authorization
   contact:
     name: Martin Dybal
     email: mdybal@medicalit.eu
