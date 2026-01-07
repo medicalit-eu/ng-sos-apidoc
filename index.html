@@ -334,7 +334,7 @@
         function parseMarkdown(markdown) {
             let html = markdown;
             
-            // Convert headers
+            // Convert headers (process h3, then h2, then h1 to prevent pattern conflicts)
             html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
             html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
             html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
@@ -533,8 +533,9 @@
                         const items = nextEl.querySelectorAll('li');
                         items.forEach(item => {
                             const text = item.textContent;
-                            if (text.includes('Version:')) {
-                                version = text.replace(/.*Version:\s*/, '').trim();
+                            // Match both "Version: X" and "**Version**: X" formats
+                            if (text.includes('Version')) {
+                                version = text.replace(/.*Version[:\s]*/, '').trim();
                             }
                             const itemLink = item.querySelector('a');
                             if (itemLink && itemLink.textContent.includes('View Documentation')) {
