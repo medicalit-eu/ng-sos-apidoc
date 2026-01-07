@@ -36,71 +36,98 @@
             display: block;
         }
 
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.95;
-        }
-
-        .api-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .api-card {
+        .content-wrapper {
             background: white;
             border-radius: 12px;
-            padding: 30px;
+            padding: 40px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            display: block;
+            margin-bottom: 30px;
         }
 
-        .api-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        #readme-content {
+            color: #333;
+            line-height: 1.7;
         }
 
-        .api-card h2 {
+        #readme-content h1 {
             color: #D82F36;
-            margin-bottom: 10px;
-            font-size: 1.5rem;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #D82F36;
+            padding-bottom: 10px;
         }
 
-        .api-card .version {
-            color: #666;
-            font-size: 0.9rem;
+        #readme-content h2 {
+            color: #D82F36;
+            font-size: 2rem;
+            margin-top: 30px;
             margin-bottom: 15px;
         }
 
-        .api-card p {
-            color: #444;
-            line-height: 1.6;
-            margin-bottom: 20px;
+        #readme-content h3 {
+            color: #B8242D;
+            font-size: 1.5rem;
+            margin-top: 25px;
+            margin-bottom: 12px;
         }
 
-        .api-card .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #D82F36 0%, #B8242D 100%);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 6px;
+        #readme-content p {
+            margin-bottom: 15px;
+        }
+
+        #readme-content a {
+            color: #D82F36;
             text-decoration: none;
-            font-weight: 600;
-            transition: opacity 0.3s ease;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
         }
 
-        .api-card .btn:hover {
-            opacity: 0.9;
+        #readme-content a:hover {
+            border-bottom-color: #D82F36;
+        }
+
+        #readme-content ul {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        #readme-content ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        #readme-content li {
+            margin-bottom: 8px;
+        }
+
+        #readme-content code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+        }
+
+        #readme-content pre {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin-bottom: 15px;
+        }
+
+        #readme-content pre code {
+            background: none;
+            padding: 0;
+        }
+
+        #readme-content strong {
+            font-weight: 600;
+            color: #222;
+        }
+
+        #readme-content em {
+            font-style: italic;
         }
 
         footer {
@@ -116,12 +143,20 @@
         }
 
         @media (max-width: 768px) {
-            h1 {
+            .content-wrapper {
+                padding: 20px;
+            }
+
+            #readme-content h1 {
                 font-size: 2rem;
             }
 
-            .api-cards {
-                grid-template-columns: 1fr;
+            #readme-content h2 {
+                font-size: 1.5rem;
+            }
+
+            #readme-content h3 {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -130,40 +165,17 @@
     <div class="container">
         <header>
             <img src="header_logo.svg" alt="Vodafone Foundation" class="logo">
-            <h1>NG SOS API Documentation</h1>
-            <p class="subtitle">Comprehensive API documentation for all NG SOS servers</p>
         </header>
 
-        <div id="home-view">
-            <div class="api-cards">
-                <a href="ems.html" target="_blank" class="api-card">
-                    <h2>Emergency Message Server</h2>
-                    <div class="version">Version 1.0.0</div>
-                    <p>The Emergency Message Server handles emergency message processing and management, including SMS reception and integration with emergency services.</p>
-                    <span class="btn">View Documentation →</span>
-                </a>
-
-                <a href="psap-connector.html" target="_blank" class="api-card">
-                    <h2>PSAP Connector Server</h2>
-                    <div class="version">Version 2.0.0</div>
-                    <p>The PSAP Connector Server provides connectivity between the NG SOS platform and Public Safety Answering Points (PSAPs).</p>
-                    <span class="btn">View Documentation →</span>
-                </a>
-
-                <a href="portal-url.html" target="_blank" class="api-card">
-                    <h2>Portal URL API</h2>
-                    <div class="version">Version 1.0.0</div>
-                    <p>The Portal URL API provides URLs and endpoints for the NG SOS portal, facilitating easy integration into third-party applications.</p>
-                    <span class="btn">View Documentation →</span>
-                </a>
+        <div class="content-wrapper">
+            <div id="readme-content">
+                <!-- README content will be inserted here during deployment -->
             </div>
         </div>
 
         <footer>
             <p>
-                NG SOS API Documentation | 
-                <a href="https://github.com/medicalit-eu/ng-sos-apidoc" target="_blank">GitHub Repository</a> | 
-                Contact: mdybal@medicalit.eu
+                <a href="https://github.com/medicalit-eu/ng-sos-apidoc" target="_blank">GitHub Repository</a>
             </p>
         </footer>
     </div>
