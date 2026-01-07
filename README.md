@@ -7,17 +7,17 @@ Welcome to the NG SOS API documentation repository. This repository contains Ope
 ### [Emergency Message Server (EMS)](./ems/)
 The Emergency Message Server handles emergency message processing and management.
 - **Version**: 1.0.0
-- [View Documentation](https://medicalit-eu.github.io/ng-sos-apidoc/#/ems)
+- [View Documentation](https://medicalit-eu.github.io/ng-sos-apidoc/ems.html)
 
 ### [PSAP Connector Server](./psap-connector/)
 The PSAP Connector Server provides connectivity between the NG SOS platform and Public Safety Answering Points.
 - **Version**: 2.0.0
-- [View Documentation](https://medicalit-eu.github.io/ng-sos-apidoc/#/psap-connector)
+- [View Documentation](https://medicalit-eu.github.io/ng-sos-apidoc/psap-connector.html)
 
 ### [Portal URL API](./portal-url/)
 The Portal URL API provides URLs and endpoints for the NG SOS portal.
 - **Version**: 1.0.0
-- [View Documentation](https://medicalit-eu.github.io/ng-sos-apidoc/#/portal-url)
+- [View Documentation](https://medicalit-eu.github.io/ng-sos-apidoc/portal-url.html)
 
 ## 🌐 Interactive Documentation
 
