@@ -73,8 +73,8 @@
         "tags": [
           "Portal"
         ],
-        "summary": "Open incident detal",
-        "description": "Open incident detal",
+        "summary": "Open incident detail",
+        "description": "Open incident detail",
         "operationId": "OpenIncidentDetail",
         "parameters": [
           {
