@@ -12,14 +12,7 @@ import json
 import os
 import sys
 from pathlib import Path
-
-try:
-    import yaml
-except ImportError:
-    print("PyYAML not installed. Installing...")
-    import subprocess
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "pyyaml"])
-    import yaml
+import yaml
 
 
 def inject_readme_to_spec(spec_path, readme_path):
@@ -43,7 +36,7 @@ def inject_readme_to_spec(spec_path, readme_path):
         
         # Check if description already exists
         if 'info' in spec and 'description' in spec.get('info', {}):
-            print(f"ℹ {spec_path} already has a description, skipping injection")
+            print(f"INFO: {spec_path} already has a description, skipping injection")
             return True
         
         # Read the README content

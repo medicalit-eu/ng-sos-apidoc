@@ -29,6 +29,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
+      
+      - name: Install Python dependencies
+        run: pip install pyyaml
 
       - name: Inject README content into OpenAPI specs
         run: python3 .github/scripts/inject-readme.py
