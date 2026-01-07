@@ -3,6 +3,9 @@
 Script to inject README content into OpenAPI specifications.
 This script is run during the GitHub Pages deployment to add README
 content as the description field in each OpenAPI spec.
+
+Note: OpenAPI specs already contain descriptions, so this script
+is kept for backwards compatibility but may not be necessary.
 """
 
 import json
@@ -10,19 +13,38 @@ import os
 import sys
 from pathlib import Path
 
+try:
+    import yaml
+except ImportError:
+    print("PyYAML not installed. Installing...")
+    import subprocess
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "pyyaml"])
+    import yaml
+
 
 def inject_readme_to_spec(spec_path, readme_path):
     """
     Add README content as description field to an OpenAPI specification.
     
     Args:
-        spec_path: Path to the OpenAPI JSON file
+        spec_path: Path to the OpenAPI YAML/JSON file
         readme_path: Path to the README.md file
     """
     try:
-        # Read the OpenAPI spec (handle BOM if present)
+        # Determine file format
+        is_yaml = spec_path.suffix in ['.yaml', '.yml']
+        
+        # Read the OpenAPI spec
         with open(spec_path, 'r', encoding='utf-8-sig') as f:
-            spec = json.load(f)
+            if is_yaml:
+                spec = yaml.safe_load(f)
+            else:
+                spec = json.load(f)
+        
+        # Check if description already exists
+        if 'info' in spec and 'description' in spec.get('info', {}):
+            print(f"ℹ {spec_path} already has a description, skipping injection")
+            return True
         
         # Read the README content
         with open(readme_path, 'r', encoding='utf-8') as f:
@@ -34,9 +56,12 @@ def inject_readme_to_spec(spec_path, readme_path):
         
         spec['info']['description'] = readme
         
-        # Write back the modified spec (without BOM)
+        # Write back the modified spec
         with open(spec_path, 'w', encoding='utf-8') as f:
-            json.dump(spec, f, indent=2, ensure_ascii=False)
+            if is_yaml:
+                yaml.dump(spec, f, default_flow_style=False, allow_unicode=True, sort_keys=False)
+            else:
+                json.dump(spec, f, indent=2, ensure_ascii=False)
         
         print(f"✓ Successfully injected README into {spec_path}")
         return True
@@ -44,8 +69,8 @@ def inject_readme_to_spec(spec_path, readme_path):
     except FileNotFoundError as e:
         print(f"✗ Error: File not found - {e}", file=sys.stderr)
         return False
-    except json.JSONDecodeError as e:
-        print(f"✗ Error: Invalid JSON in {spec_path} - {e}", file=sys.stderr)
+    except (json.JSONDecodeError, yaml.YAMLError) as e:
+        print(f"✗ Error: Invalid format in {spec_path} - {e}", file=sys.stderr)
         return False
     except Exception as e:
         print(f"✗ Error processing {spec_path}: {e}", file=sys.stderr)
@@ -64,7 +89,11 @@ def main():
     print("-" * 60)
     
     for api in apis:
-        spec_path = Path(api) / 'openapi.json'
+        # Try YAML first, then JSON
+        spec_path = Path(api) / 'openapi.yaml'
+        if not spec_path.exists():
+            spec_path = Path(api) / 'openapi.json'
+        
         readme_path = Path(api) / 'README.md'
         
         if inject_readme_to_spec(spec_path, readme_path):
