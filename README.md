@@ -29,22 +29,24 @@ Visit our [API Documentation Website](https://medicalit-eu.github.io/ng-sos-apid
 ng-sos-apidoc/
 ├── ems/
 │   ├── README.md
-│   └── openapi.json
+│   └── openapi.yaml
 ├── psap-connector/
 │   ├── README.md
-│   └── openapi.json
+│   └── openapi.yaml
 ├── portal-url/
 │   ├── README.md
-│   └── openapi.json
+│   └── openapi.yaml
 └── index.html (GitHub Pages)
 ```
 
 ## 🚀 Contributing
 
 To update API specifications:
-1. Update the corresponding `openapi.json` file in the server's folder
+1. Update the corresponding `openapi.yaml` file in the server's folder
 2. Update the `README.md` if necessary
 3. The documentation website will be automatically updated via GitHub Pages
+
+**Note**: API specifications are maintained in YAML format for enhanced readability and maintainability.
 
 ## 📧 Contact
 

@@ -13,7 +13,7 @@ This folder contains the OpenAPI specification for the PSAP Connector Server API
 
 ## API Specification
 
-The complete API specification is available in the [openapi.json](./openapi.json) file.
+The complete API specification is available in the [openapi.yaml](./openapi.yaml) file (YAML format for enhanced readability and maintainability).
 
 You can also view the interactive API documentation on our [API documentation website](https://medicalit-eu.github.io/ng-sos-apidoc/).
 
