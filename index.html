@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NG SOS API Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .api-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .api-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .api-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .api-card h2 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .api-card .version {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .api-card p {
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .api-card .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.3s ease;
+        }
+
+        .api-card .btn:hover {
+            opacity: 0.9;
+        }
+
+        .doc-viewer {
+            display: none;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .doc-viewer.active {
+            display: block;
+        }
+
+        .doc-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .doc-header h2 {
+            margin: 0;
+        }
+
+        .close-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .doc-content {
+            height: 80vh;
+            overflow: auto;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            opacity: 0.9;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .api-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 NG SOS API Documentation</h1>
+            <p class="subtitle">Comprehensive API documentation for all NG SOS servers</p>
+        </header>
+
+        <div id="home-view">
+            <div class="api-cards">
+                <div class="api-card" onclick="showDoc('ems')">
+                    <h2>🚨 Emergency Message Server</h2>
+                    <div class="version">Version 1.0.0</div>
+                    <p>The Emergency Message Server handles emergency message processing and management, including SMS reception and integration with emergency services.</p>
+                    <span class="btn">View Documentation →</span>
+                </div>
+
+                <div class="api-card" onclick="showDoc('psap-connector')">
+                    <h2>🔌 PSAP Connector Server</h2>
+                    <div class="version">Version 2.0.0</div>
+                    <p>The PSAP Connector Server provides connectivity between the NG SOS platform and Public Safety Answering Points (PSAPs).</p>
+                    <span class="btn">View Documentation →</span>
+                </div>
+
+                <div class="api-card" onclick="showDoc('portal-url')">
+                    <h2>🌐 Portal URL API</h2>
+                    <div class="version">Version 1.0.0</div>
+                    <p>The Portal URL API provides URLs and endpoints for the NG SOS portal, facilitating easy integration into third-party applications.</p>
+                    <span class="btn">View Documentation →</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="ems-viewer" class="doc-viewer">
+            <div class="doc-header">
+                <h2>Emergency Message Server API</h2>
+                <button class="close-btn" onclick="hideDoc()">← Back to Home</button>
+            </div>
+            <div id="ems-content" class="doc-content"></div>
+        </div>
+
+        <div id="psap-connector-viewer" class="doc-viewer">
+            <div class="doc-header">
+                <h2>PSAP Connector Server API</h2>
+                <button class="close-btn" onclick="hideDoc()">← Back to Home</button>
+            </div>
+            <div id="psap-connector-content" class="doc-content"></div>
+        </div>
+
+        <div id="portal-url-viewer" class="doc-viewer">
+            <div class="doc-header">
+                <h2>Portal URL API</h2>
+                <button class="close-btn" onclick="hideDoc()">← Back to Home</button>
+            </div>
+            <div id="portal-url-content" class="doc-content"></div>
+        </div>
+
+        <footer>
+            <p>
+                NG SOS API Documentation | 
+                <a href="https://github.com/medicalit-eu/ng-sos-apidoc" target="_blank">GitHub Repository</a> | 
+                Contact: mdybal@medicalit.eu
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        const apis = {
+            'ems': {
+                url: './ems/openapi.json',
+                contentId: 'ems-content',
+                viewerId: 'ems-viewer'
+            },
+            'psap-connector': {
+                url: './psap-connector/openapi.json',
+                contentId: 'psap-connector-content',
+                viewerId: 'psap-connector-viewer'
+            },
+            'portal-url': {
+                url: './portal-url/openapi.json',
+                contentId: 'portal-url-content',
+                viewerId: 'portal-url-viewer'
+            }
+        };
+
+        let currentApi = null;
+        let scalarLoaded = false;
+
+        function loadScalar() {
+            if (scalarLoaded) return Promise.resolve();
+            
+            return new Promise((resolve) => {
+                const script = document.createElement('script');
+                script.src = 'https://cdn.jsdelivr.net/npm/@scalar/api-reference';
+                script.onload = () => {
+                    scalarLoaded = true;
+                    resolve();
+                };
+                document.head.appendChild(script);
+            });
+        }
+
+        async function showDoc(apiName) {
+            await loadScalar();
+            
+            const api = apis[apiName];
+            if (!api) return;
+
+            // Hide home view and all other viewers
+            document.getElementById('home-view').style.display = 'none';
+            Object.values(apis).forEach(a => {
+                document.getElementById(a.viewerId).classList.remove('active');
+            });
+
+            // Show current viewer
+            document.getElementById(api.viewerId).classList.add('active');
+            currentApi = apiName;
+
+            // Initialize Scalar if not already done for this API
+            const contentEl = document.getElementById(api.contentId);
+            if (!contentEl.hasChildNodes()) {
+                const apiReference = document.createElement('script');
+                apiReference.id = `api-reference-${apiName}`;
+                apiReference.type = 'application/json';
+                apiReference.textContent = JSON.stringify({
+                    spec: {
+                        url: api.url
+                    },
+                    configuration: {
+                        theme: 'purple',
+                        layout: 'modern',
+                        showSidebar: true,
+                        hideModels: false,
+                        darkMode: false
+                    }
+                });
+                contentEl.appendChild(apiReference);
+
+                // Create the API reference element
+                const referenceEl = document.createElement('div');
+                referenceEl.className = 'api-reference';
+                referenceEl.setAttribute('data-configuration', `#api-reference-${apiName}`);
+                contentEl.appendChild(referenceEl);
+
+                // Initialize Scalar
+                if (window.ScalarApiReference) {
+                    window.ScalarApiReference.render(referenceEl, {
+                        spec: {
+                            url: api.url
+                        },
+                        configuration: {
+                            theme: 'purple',
+                            layout: 'modern',
+                            showSidebar: true
+                        }
+                    });
+                }
+            }
+
+            // Update URL hash
+            window.location.hash = apiName;
+        }
+
+        function hideDoc() {
+            Object.values(apis).forEach(api => {
+                document.getElementById(api.viewerId).classList.remove('active');
+            });
+            document.getElementById('home-view').style.display = 'block';
+            currentApi = null;
+            window.location.hash = '';
+        }
+
+        // Handle direct links
+        window.addEventListener('load', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash && apis[hash]) {
+                showDoc(hash);
+            }
+        });
+
+        // Handle back button
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash.substring(1);
+            if (!hash) {
+                hideDoc();
+            } else if (apis[hash] && currentApi !== hash) {
+                showDoc(hash);
+            }
+        });
+    </script>
+</body>
+</html>
