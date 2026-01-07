@@ -23,31 +23,15 @@ paths:
               - $ref: '#/components/schemas/NG_SOS.EMS.Api.Integrations.Develogi.v1.ReceiveSmsBody'
       responses:
         '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Forbidden'
         '415':
-          description: Unsupported Media Type
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/UnsupportedMediaType'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/InternalServerError'
   /integrations/develogi/v1/sms-status:
     post:
       tags:
@@ -62,31 +46,15 @@ paths:
               - $ref: '#/components/schemas/NG_SOS.EMS.Api.Integrations.Develogi.v1.SmsStatusBody'
       responses:
         '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Forbidden'
         '415':
-          description: Unsupported Media Type
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/UnsupportedMediaType'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/InternalServerError'
   /mobile-app/v1/incident:
     post:
       tags:
@@ -103,31 +71,15 @@ paths:
               - $ref: '#/components/schemas/NG_SOS.EMS.Api.Abstractions.MobileApp.v1.CreateIncidentBody'
       responses:
         '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Forbidden'
         '415':
-          description: Unsupported Media Type
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/UnsupportedMediaType'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/InternalServerError'
         '200':
           description: OK
           content:
@@ -158,31 +110,15 @@ paths:
               - $ref: '#/components/schemas/NG_SOS.EMS.Api.Abstractions.MobileApp.v1.UpdateIncidentBody'
       responses:
         '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Forbidden'
         '415':
-          description: Unsupported Media Type
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/UnsupportedMediaType'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/InternalServerError'
         '200':
           description: OK
   /psap/v1/connector/request/progress/failure:
@@ -199,31 +135,15 @@ paths:
               - $ref: '#/components/schemas/NG_SOS.EMS.Api.Abstractions.Psap.v1.RequestFailureBody'
       responses:
         '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Forbidden'
         '415':
-          description: Unsupported Media Type
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/UnsupportedMediaType'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/InternalServerError'
         '200':
           description: OK
   /psap/v1/connector/request/progress/success:
@@ -240,31 +160,15 @@ paths:
               - $ref: '#/components/schemas/NG_SOS.EMS.Api.Abstractions.Psap.v1.RequestSuccessBody'
       responses:
         '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Forbidden'
         '415':
-          description: Unsupported Media Type
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/UnsupportedMediaType'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/InternalServerError'
         '200':
           description: OK
   /psap/v1/incident/{id}/confirm-collaboration:
@@ -282,31 +186,15 @@ paths:
           format: uuid
       responses:
         '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Forbidden'
         '415':
-          description: Unsupported Media Type
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/UnsupportedMediaType'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/InternalServerError'
         '200':
           description: OK
   /psap/v1/incident/{id}/reject-collaboration:
@@ -324,31 +212,15 @@ paths:
           format: uuid
       responses:
         '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Forbidden'
         '415':
-          description: Unsupported Media Type
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/UnsupportedMediaType'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/InternalServerError'
         '200':
           description: OK
   /soap/legacy/incident/create-or-update:
@@ -675,19 +547,15 @@ paths:
         '201':
           description: Created
         '400':
-          description: Bad Request
-          content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/BadRequestXml'
         '401':
-          description: Unauthorized
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
+          $ref: '#/components/responses/Forbidden'
         '415':
-          description: Unsupported Media Type
+          $ref: '#/components/responses/UnsupportedMediaType'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/InternalServerError'
       deprecated: true
 components:
   schemas:
@@ -1362,5 +1230,38 @@ components:
       type: http
       scheme: bearer
       bearerFormat: JWT
+  responses:
+    Forbidden:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+    BadRequestXml:
+      description: Bad Request
+      content:
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+    UnsupportedMediaType:
+      description: Unsupported Media Type
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+    InternalServerError:
+      description: Internal Server Error
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
 security:
 - Bearer: []

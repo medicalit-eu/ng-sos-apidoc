@@ -16,25 +16,13 @@ paths:
       operationId: About
       responses:
         '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Forbidden'
         '500':
-          description: Server Error
+          $ref: '#/components/responses/InternalServerError'
         '200':
           description: Success
           content:
@@ -67,25 +55,13 @@ paths:
         '200':
           description: Success
         '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Forbidden'
         '500':
-          description: Server Error
+          $ref: '#/components/responses/InternalServerError'
   /v2/incident/{id}:
     post:
       tags:
@@ -109,25 +85,13 @@ paths:
               - $ref: '#/components/schemas/NG_SOS.Psaps.Api.Abstractions.v2.CloseIncidentBody'
       responses:
         '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Forbidden'
         '500':
-          description: Server Error
+          $ref: '#/components/responses/InternalServerError'
         '200':
           description: Success
   /v2/incident:
@@ -145,25 +109,13 @@ paths:
               - $ref: '#/components/schemas/NG_SOS.Psaps.Api.Abstractions.v2.CreateIncidentBody'
       responses:
         '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Forbidden'
         '500':
-          description: Server Error
+          $ref: '#/components/responses/InternalServerError'
         '201':
           description: Created
           content:
@@ -197,25 +149,13 @@ paths:
         '200':
           description: Success
         '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Forbidden'
         '500':
-          description: Server Error
+          $ref: '#/components/responses/InternalServerError'
     post:
       tags:
       - Incident
@@ -240,25 +180,13 @@ paths:
         '200':
           description: Success
         '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Forbidden'
         '500':
-          description: Server Error
+          $ref: '#/components/responses/InternalServerError'
   /v2/incident/{id}/battery-level:
     patch:
       tags:
@@ -284,25 +212,13 @@ paths:
         '200':
           description: Success
         '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Forbidden'
         '500':
-          description: Server Error
+          $ref: '#/components/responses/InternalServerError'
   /v2/incident/{id}/internet-connection-type:
     patch:
       tags:
@@ -328,25 +244,13 @@ paths:
         '200':
           description: Success
         '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          $ref: '#/components/responses/Forbidden'
         '500':
-          description: Server Error
+          $ref: '#/components/responses/InternalServerError'
 components:
   schemas:
     Microsoft.AspNetCore.Mvc.ProblemDetails:
@@ -1002,5 +906,26 @@ components:
       type: http
       scheme: bearer
       bearerFormat: JWT
+  responses:
+    Forbidden:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+    InternalServerError:
+      description: Internal Server Error
 security:
 - Bearer: []

@@ -106,3 +106,5 @@ paths:
       responses:
         '200':
           description: successful operation
+components:
+  responses: {}
