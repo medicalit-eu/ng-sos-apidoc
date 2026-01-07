@@ -5,6 +5,7 @@ This script is run during the GitHub Pages deployment to add README
 content as the description field in each OpenAPI spec and into the main page.
 """
 
+import html
 import json
 import os
 import re
@@ -64,36 +65,38 @@ def markdown_to_html(markdown_text):
     Returns:
         HTML string
     """
-    html = markdown_text
+    # Escape HTML in the entire input first to prevent XSS
+    text = html.escape(markdown_text)
     
     # Convert code blocks first (before inline code) and protect them from further processing
     code_blocks = []
     def save_code_block(match):
-        # Store the code block and return a single-line placeholder
-        code_blocks.append(f'<pre><code>{match.group(1)}</code></pre>')
+        # Code block content is already escaped above
+        content = match.group(1)
+        code_blocks.append(f'<pre><code>{content}</code></pre>')
         return f'\n__CODE_BLOCK_{len(code_blocks)-1}__\n'
     
-    html = re.sub(r'```\n?(.*?)\n?```', save_code_block, html, flags=re.DOTALL)
+    text = re.sub(r'```\n?(.*?)\n?```', save_code_block, text, flags=re.DOTALL)
     
-    # Convert headers
-    html = re.sub(r'^### (.+)$', r'<h3>\1</h3>', html, flags=re.MULTILINE)
-    html = re.sub(r'^## (.+)$', r'<h2>\1</h2>', html, flags=re.MULTILINE)
-    html = re.sub(r'^# (.+)$', r'<h1>\1</h1>', html, flags=re.MULTILINE)
+    # Convert headers (content is already escaped)
+    text = re.sub(r'^### (.+)$', r'<h3>\1</h3>', text, flags=re.MULTILINE)
+    text = re.sub(r'^## (.+)$', r'<h2>\1</h2>', text, flags=re.MULTILINE)
+    text = re.sub(r'^# (.+)$', r'<h1>\1</h1>', text, flags=re.MULTILINE)
     
-    # Convert links [text](url)
-    html = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', html)
+    # Convert links [text](url) - content is already escaped
+    text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', text)
     
-    # Convert bold **text** (before italic)
-    html = re.sub(r'\*\*([^\*]+)\*\*', r'<strong>\1</strong>', html)
+    # Convert bold **text** (before italic) - content is already escaped
+    text = re.sub(r'\*\*([^\*]+)\*\*', r'<strong>\1</strong>', text)
     
-    # Convert italic *text*
-    html = re.sub(r'\*([^\*]+)\*', r'<em>\1</em>', html)
+    # Convert italic *text* - content is already escaped
+    text = re.sub(r'\*([^\*]+)\*', r'<em>\1</em>', text)
     
-    # Convert inline code `code`
-    html = re.sub(r'`([^`]+)`', r'<code>\1</code>', html)
+    # Convert inline code `code` - content is already escaped
+    text = re.sub(r'`([^`]+)`', r'<code>\1</code>', text)
     
-    # Process lines for list conversion
-    lines = html.split('\n')
+    # Process lines for list conversion (content is already escaped)
+    lines = text.split('\n')
     in_list = False
     in_numbered_list = False
     result = []
@@ -134,10 +137,10 @@ def markdown_to_html(markdown_text):
     if in_numbered_list:
         result.append('</ol>')
     
-    html = '\n'.join(result)
+    text = '\n'.join(result)
     
     # Convert paragraphs - process line by line instead of splitting by blank lines
-    lines = html.split('\n')
+    lines = text.split('\n')
     html_lines = []
     
     for i, line in enumerate(lines):
@@ -157,16 +160,16 @@ def markdown_to_html(markdown_text):
             stripped.startswith('<li>') or stripped.startswith('</li>')):
             html_lines.append(line)
         else:
-            # Wrap regular text in paragraph tags
+            # Wrap regular text in paragraph tags (content is already escaped)
             html_lines.append(f'<p>{stripped}</p>')
     
-    html = '\n'.join(html_lines)
+    output_html = '\n'.join(html_lines)
     
     # Restore code blocks
     for i, code_block in enumerate(code_blocks):
-        html = html.replace(f'__CODE_BLOCK_{i}__', code_block)
+        output_html = output_html.replace(f'__CODE_BLOCK_{i}__', code_block)
     
-    return html
+    return output_html
 
 
 def inject_readme_to_index(index_path, readme_path):
