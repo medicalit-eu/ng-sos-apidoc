@@ -349,7 +349,7 @@
             html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
             
             // Convert code blocks ```
-            html = html.replace(/```([^`]+)```/gs, '<pre><code>$1</code></pre>');
+            html = html.replace(/```([\s\S]*?)```/gs, '<pre><code>$1</code></pre>');
             
             // Convert inline code `code`
             html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
@@ -363,13 +363,13 @@
             for (let i = 0; i < lines.length; i++) {
                 const line = lines[i].trim();
                 
-                if (line.match(/^[-*] /)) {
-                    // List item
+                if (line.match(/^[-*] /) || line.match(/^\d+\. /)) {
+                    // List item (unordered or ordered)
                     if (!inList) {
                         inList = true;
                         listItems = [];
                     }
-                    listItems.push('<li>' + line.replace(/^[-*] /, '') + '</li>');
+                    listItems.push('<li>' + line.replace(/^[-*] /, '').replace(/^\d+\. /, '') + '</li>');
                 } else {
                     // End list if we were in one
                     if (inList) {
@@ -411,7 +411,7 @@
                 
             } catch (error) {
                 document.getElementById('content').innerHTML = 
-                    '<p style="color: #D82F36;">Error loading documentation. Please check the README.md file.</p>';
+                    '<p style="color: #D82F36;">Error loading documentation: ' + error.message + '. Please ensure README.md exists and is accessible.</p>';
                 console.error('Error loading README:', error);
             }
         }
@@ -445,9 +445,14 @@
             const h2Elements = tempDiv.querySelectorAll('h2');
             
             h2Elements.forEach((h2, index) => {
-                const sectionId = h2.textContent.toLowerCase()
+                let sectionId = h2.textContent.toLowerCase()
                     .replace(/[^\w\s]/g, '')
                     .replace(/\s+/g, '-');
+                
+                // Ensure ID starts with a letter (valid HTML)
+                if (!/^[a-z]/i.test(sectionId)) {
+                    sectionId = 'section-' + sectionId;
+                }
                 
                 const sectionDiv = document.createElement('div');
                 sectionDiv.className = 'content-section';
@@ -491,7 +496,7 @@
         }
 
         function renderApiCards() {
-            const apiSection = document.getElementById('-available-apis');
+            const apiSection = document.getElementById('section--available-apis');
             if (!apiSection) return;
             
             const h2 = apiSection.querySelector('h2');
@@ -601,6 +606,7 @@
         }
 
         function setupScrollSpy(sections) {
+            // IntersectionObserver config: -100px top offset for header, -80% bottom keeps most of viewport for detection
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
