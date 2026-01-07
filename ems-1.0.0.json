@@ -1,0 +1,2091 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "NG SOS Emergency message server",
+    "contact": {
+      "name": "Martin Dybal",
+      "email": "mdybal@medicalit.eu"
+    },
+    "version": "1.0.0",
+    "x-logo": {
+      "altText": "NG SOS Logo",
+      "url": "https://apidoc.ng-sos.com/logo.svg"
+    }
+  },
+  "paths": {
+    "/integrations/develogi/v1/sms-receive": {
+      "post": {
+        "tags": [
+          "Integrations Develogi"
+        ],
+        "summary": "Sms received",
+        "operationId": "ReceiveSms",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/NG_SOS.EMS.Api.Integrations.Develogi.v1.ReceiveSmsBody"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Unsupported Media Type",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/integrations/develogi/v1/sms-status": {
+      "post": {
+        "tags": [
+          "Integrations Develogi"
+        ],
+        "summary": "Update sms status",
+        "operationId": "UpdateSmsStatus",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/NG_SOS.EMS.Api.Integrations.Develogi.v1.SmsStatusBody"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Unsupported Media Type",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/mobile-app/v1/incident": {
+      "post": {
+        "tags": [
+          "Mobile App"
+        ],
+        "summary": "Create incident.\nAuthorization is required and must use \"NG-SOS-PVT\" instead of Bearer token.",
+        "operationId": "Create",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/NG_SOS.EMS.Api.Abstractions.MobileApp.v1.CreateIncidentBody"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Unsupported Media Type",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NG_SOS.EMS.Api.Abstractions.MobileApp.v1.CreateIncidentResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mobile-app/v1/incident/{id}": {
+      "put": {
+        "tags": [
+          "Mobile App"
+        ],
+        "summary": "Update the incident.\nAuthorization is required and must use \"NG-SOS-PVT\" instead of Bearer token.",
+        "operationId": "Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Incident id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/NG_SOS.EMS.Api.Abstractions.MobileApp.v1.UpdateIncidentBody"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Unsupported Media Type",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/psap/v1/connector/request/progress/failure": {
+      "post": {
+        "tags": [
+          "Psap Connector"
+        ],
+        "summary": "Mark request state as failed",
+        "operationId": "RequestFailure",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/NG_SOS.EMS.Api.Abstractions.Psap.v1.RequestFailureBody"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Unsupported Media Type",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/psap/v1/connector/request/progress/success": {
+      "post": {
+        "tags": [
+          "Psap Connector"
+        ],
+        "summary": "Mark request state as succeeded",
+        "operationId": "RequestSuccess",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/NG_SOS.EMS.Api.Abstractions.Psap.v1.RequestSuccessBody"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Unsupported Media Type",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/psap/v1/incident/{id}/confirm-collaboration": {
+      "post": {
+        "tags": [
+          "Psap Incident"
+        ],
+        "summary": "Confirm collaboration on incident",
+        "operationId": "ConfirmCollaboration",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Unsupported Media Type",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/psap/v1/incident/{id}/reject-collaboration": {
+      "post": {
+        "tags": [
+          "Psap Incident"
+        ],
+        "summary": "Reject collaboration on incident",
+        "operationId": "RejectCollaboration",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Unsupported Media Type",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/soap/legacy/incident/create-or-update": {
+      "post": {
+        "tags": [
+          "Soap"
+        ],
+        "summary": "Creates a new incident or update existing one",
+        "operationId": "CreateOrUpdateAsync",
+        "parameters": [
+          {
+            "name": "Body.UpdateLocation.Body.UserName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Lang",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.AppRegion",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.UserEmail",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.UserNid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.ExtraData.Jablotron.City",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.ExtraData.Jablotron.Street",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.ExtraData.Jablotron.ZipCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.ExtraData.Jablotron.IdKeys",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.ExtraData.Jablotron.Dist",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Lat",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Lng",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Accuracy",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Altitude",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Old",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.BatteryLevel",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Os",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.DeviceName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.AppVersion",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.SystemVersion",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.DeviceId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.UserAge",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Diabetes",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Heart",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Lungs",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Deaf",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Other",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Region",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Note",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.UserLang",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.TemporaryInfoValid",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.TemporaryInfo",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Paramedic",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Blind",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.SpeechDefect",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Contacts",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/NG_SOS.EMS.Soap.Bridge.Requests.Income.UpdateLocationBodyContact"
+              }
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.PermanentResidence.AddressText",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.PermanentResidence.Location.Latitude",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.PermanentResidence.Location.Longitude",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.PermanentResidence.Location.Altitude",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.PermanentResidence.Location.Accuracy",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Source",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.ConnectionType",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Incident.Id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Incident.StartTime",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Incident.Description",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Incident.Address.Country",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Incident.Address.Province",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Incident.Address.Line1",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Incident.Address.Line2",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Incident.Address.PostalCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Incident.Address.City",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Incident.Address.Note",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Incident.Address.AddressSystem",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Incident.Address.AddressCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Patient.FirstName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Patient.LastName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Patient.FullName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Patient.Birthdate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Patient.Sex",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Patient.Tel",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Phenomena.Aed",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.Phenomena.Other",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.UserWeight",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.UserHeight",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.RegularMedications",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.EmergencyQuestionnaire.Flags",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/NG_SOS.EMS.Soap.Bridge.Requests.Income.EmergencyQuestionnaireFlagBody"
+              }
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Body.EmergencyQuestionnaire.Other",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Header.SentTime",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.Header.Tel",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Body.UpdateLocation.SchemaVersion",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Header",
+            "in": "query",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/NG_SOS.EMS.Soap.Bridge.Requests.Income.UpdateLocationRequestHeader"
+                }
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "415": {
+            "description": "Unsupported Media Type"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "deprecated": true
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Microsoft.AspNetCore.Mvc.ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      },
+      "NG_SOS.Abstractions.App.AppInfo": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Application code. This information is used to distinguish national and regional applications.",
+            "example": "CZ"
+          },
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NG_SOS.Abstractions.App.AppType"
+              }
+            ],
+            "description": "Application type. This information is used to distinguish between web, mobile and IOT applications."
+          },
+          "version": {
+            "type": "string",
+            "description": "Application version.",
+            "example": "1.0.0"
+          },
+          "language": {
+            "type": "string",
+            "description": "Application language.",
+            "nullable": true,
+            "example": "cs"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Information about an application."
+      },
+      "NG_SOS.Abstractions.App.AppType": {
+        "enum": [
+          "Mobile",
+          "Web",
+          "IOT"
+        ],
+        "type": "string"
+      },
+      "NG_SOS.Abstractions.EmergencyServiceType": {
+        "enum": [
+          "Unknown",
+          "EmergencyMedicalService",
+          "FireRescueServices",
+          "Police",
+          "MountainRescueService",
+          "WaterRescueService",
+          "CoastGuard",
+          "MunicipalPolice",
+          "MedicalAirService",
+          "Military",
+          "All",
+          "SystemIntegration"
+        ],
+        "type": "string"
+      },
+      "NG_SOS.Abstractions.Geography.GeoPoint": {
+        "type": "object",
+        "properties": {
+          "latitude": {
+            "type": "number",
+            "description": "Latitude coordinate.",
+            "format": "double",
+            "example": 49.179478
+          },
+          "longitude": {
+            "type": "number",
+            "description": "Longitude coordinate.",
+            "format": "double",
+            "example": 17.537876
+          }
+        },
+        "additionalProperties": false,
+        "description": "Representation of a geographic point using WGS84."
+      },
+      "NG_SOS.Abstractions.PhoneNumber": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NG_SOS.EMS.Api.Abstractions.MobileApp.v1.CreateIncidentBody": {
+        "type": "object",
+        "properties": {
+          "requestedIncidentId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "00000000-0000-0000-0000-000000000000"
+          },
+          "appInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NG_SOS.Abstractions.App.AppInfo"
+              }
+            ],
+            "description": "Information about an application."
+          },
+          "deviceInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NG_SOS.Incidents.Domain.Abstractions.DeviceInfo"
+              }
+            ],
+            "description": "Information about a device."
+          },
+          "caller": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NG_SOS.EMS.Api.Abstractions.MobileApp.v1.CreateIncidentCaller"
+              }
+            ]
+          },
+          "patients": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NG_SOS.Incidents.Domain.Abstractions.Patient"
+            }
+          },
+          "preferredEmergencyServices": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NG_SOS.Abstractions.EmergencyServiceType"
+            },
+            "description": "Emergency service preferred to be activated by the caller. If none are specified all available emergency services will be requested."
+          },
+          "requiredPsaps": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid",
+              "example": "00000000-0000-0000-0000-000000000000"
+            },
+            "description": "If filled in, only these psaps are used.",
+            "example": [
+              "33e307f6-1ba0-4e00-acc7-82a7a8be6b29"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "NG_SOS.EMS.Api.Abstractions.MobileApp.v1.CreateIncidentCaller": {
+        "type": "object",
+        "properties": {
+          "positions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NG_SOS.EMS.Api.Abstractions.Position"
+            },
+            "description": "Positions"
+          },
+          "fullname": {
+            "type": "string",
+            "description": "Full name.",
+            "nullable": true,
+            "example": "Hal Finney"
+          },
+          "phoneNumbers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NG_SOS.Abstractions.PhoneNumber"
+            },
+            "description": "Registered phone numbers.",
+            "example": [
+              "+420775123456"
+            ]
+          },
+          "email": {
+            "type": "string",
+            "description": "Email address.",
+            "nullable": true,
+            "example": "hal@finney.org"
+          },
+          "languages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Languages caller is able to speak or at least understands passively.",
+            "example": [
+              "en"
+            ]
+          },
+          "permanentResidence": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NG_SOS.Incidents.Domain.Abstractions.PermanentResidence"
+              }
+            ],
+            "description": "Permanent residence.",
+            "nullable": true
+          },
+          "contacts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NG_SOS.Incidents.Domain.Abstractions.EmergencyContact"
+            },
+            "description": "Emergency contacts."
+          },
+          "classification": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NG_SOS.Incidents.Domain.Abstractions.Classification"
+              }
+            ],
+            "description": "Classification of an incident.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "NG_SOS.EMS.Api.Abstractions.MobileApp.v1.CreateIncidentResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "example": "00000000-0000-0000-0000-000000000000"
+          },
+          "involvedPsaps": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NG_SOS.Incidents.Domain.Abstractions.InvolvedPsapInfo"
+            }
+          },
+          "actions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NG_SOS.Incidents.Domain.Abstractions.AppAction"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "NG_SOS.EMS.Api.Abstractions.MobileApp.v1.UpdateIncidentBody": {
+        "type": "object",
+        "properties": {
+          "position": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NG_SOS.EMS.Api.Abstractions.Position"
+              }
+            ],
+            "nullable": true
+          },
+          "batteryLevel": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "internetConnectionType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NG_SOS.Incidents.Domain.Abstractions.InternetConnectionType"
+              }
+            ],
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "NG_SOS.EMS.Api.Abstractions.Position": {
+        "type": "object",
+        "properties": {
+          "latitude": {
+            "type": "number",
+            "description": "Latitude coordinate.",
+            "format": "double",
+            "example": 49.179478
+          },
+          "longitude": {
+            "type": "number",
+            "description": "Longitude coordinate.",
+            "format": "double",
+            "example": 17.537876
+          },
+          "captureAtUtc": {
+            "type": "string",
+            "description": "Timestamp (in UTC) determining when was the position captured.",
+            "format": "date-time"
+          },
+          "accuracy": {
+            "type": "number",
+            "description": "Horizontal accuracy expressed in meters.",
+            "format": "double",
+            "example": 32.83
+          },
+          "altitude": {
+            "type": "number",
+            "description": "Distance above sea level expressed in meters.",
+            "format": "double",
+            "example": 264
+          },
+          "altitudeAccuracy": {
+            "type": "number",
+            "description": "Altitude accuracy expressed in meters.",
+            "format": "double",
+            "nullable": true,
+            "example": 51
+          }
+        },
+        "additionalProperties": false
+      },
+      "NG_SOS.EMS.Api.Abstractions.Psap.v1.RequestFailureBody": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NG_SOS.EMS.Api.Abstractions.Psap.v1.RequestSuccessBody": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NG_SOS.EMS.Api.Integrations.Develogi.v1.ReceiveSmsBody": {
+        "type": "object",
+        "properties": {
+          "smsId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "phoneNumber": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NG_SOS.Abstractions.PhoneNumber"
+              }
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string",
+            "description": "Timestamp (in UTC) determining when was status changed.",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NG_SOS.EMS.Api.Integrations.Develogi.v1.SmsStatus": {
+        "enum": [
+          "Unknown",
+          "Delivered",
+          "Failed"
+        ],
+        "type": "string"
+      },
+      "NG_SOS.EMS.Api.Integrations.Develogi.v1.SmsStatusBody": {
+        "type": "object",
+        "properties": {
+          "smsId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NG_SOS.EMS.Api.Integrations.Develogi.v1.SmsStatus"
+              }
+            ]
+          },
+          "timestamp": {
+            "type": "string",
+            "description": "Timestamp (in UTC) determining when was status changed.",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NG_SOS.EMS.Soap.Bridge.Requests.Income.EmergencyQuestionnaireFlagBody": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NG_SOS.EMS.Soap.Bridge.Requests.Income.UpdateLocationBodyContact": {
+        "type": "object",
+        "properties": {
+          "phoneNumber": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "NG_SOS.EMS.Soap.Bridge.Requests.Income.UpdateLocationRequestHeader": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "NG_SOS.Incidents.Domain.Abstractions.AppAction": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "NG_SOS.Incidents.Domain.Abstractions.BloodType": {
+        "enum": [
+          "Unknown",
+          "ZeroNegative",
+          "ZeroPositive",
+          "ANegative",
+          "APositive",
+          "BNegative",
+          "BPositive",
+          "ABNegative",
+          "ABPositive"
+        ],
+        "type": "string"
+      },
+      "NG_SOS.Incidents.Domain.Abstractions.Classification": {
+        "type": "object",
+        "properties": {
+          "hardInjury": {
+            "type": "boolean",
+            "description": "Indication that subject suffered a hard injury.",
+            "example": false
+          },
+          "carAccident": {
+            "type": "boolean",
+            "description": "Indication that subject has been in a car accident.",
+            "example": false
+          },
+          "heartIssue": {
+            "type": "boolean",
+            "description": "Indication that subject has chest pains and/or problems with heart.",
+            "example": false
+          },
+          "bleeding": {
+            "type": "boolean",
+            "description": "Indication that subject is bleeding.",
+            "example": false
+          },
+          "allergic": {
+            "type": "boolean",
+            "description": "Indication that subject has an allergic reaction.",
+            "example": false
+          },
+          "breathingIssue": {
+            "type": "boolean",
+            "description": "Indication that subject has difficulties with breathing.",
+            "example": false
+          },
+          "otherProblem": {
+            "type": "boolean",
+            "description": "Indication that subject has some other problem that is not covered by other categories.",
+            "example": false
+          },
+          "unconsciousness": {
+            "type": "boolean",
+            "description": "Indication that subject is unconscious.",
+            "example": false
+          },
+          "witness": {
+            "type": "boolean",
+            "description": "Indication that caller is a witness and calling on behalf of a subject in need of medical attention.",
+            "example": false
+          },
+          "avalanche": {
+            "type": "boolean",
+            "description": "Indication that subject has been in an avalanche.",
+            "example": false
+          },
+          "deadlock": {
+            "type": "boolean",
+            "description": "Indication that subject got stuck (is in deadlock).",
+            "example": false
+          },
+          "lost": {
+            "type": "boolean",
+            "description": "Indication that subject got lost.",
+            "example": false
+          },
+          "mountainInjury": {
+            "type": "boolean",
+            "description": "Indication that subject suffered an injury in mountains.",
+            "example": false
+          }
+        },
+        "additionalProperties": false,
+        "description": "Classification of an incident."
+      },
+      "NG_SOS.Incidents.Domain.Abstractions.DeviceInfo": {
+        "type": "object",
+        "properties": {
+          "deviceId": {
+            "type": "string",
+            "description": "Device identifier.",
+            "nullable": true,
+            "example": "7cdd92e59411540c"
+          },
+          "deviceName": {
+            "type": "string",
+            "description": "Device name.",
+            "nullable": true,
+            "example": "iPhone13 mini"
+          },
+          "manufacturer": {
+            "type": "string",
+            "description": "Device manufacturer.",
+            "nullable": true,
+            "example": "Apple"
+          },
+          "batteryLevel": {
+            "type": "number",
+            "description": "Current battery level.",
+            "format": "double",
+            "nullable": true,
+            "example": 85.7
+          },
+          "system": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NG_SOS.Incidents.Domain.Abstractions.DeviceOs"
+              }
+            ],
+            "description": "Operating system that is running on the device.",
+            "example": "iOS"
+          },
+          "systemVersion": {
+            "type": "string",
+            "description": "Version of the operating system that is running on the device.",
+            "nullable": true,
+            "example": "15.1.0"
+          },
+          "internetConnectionType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NG_SOS.Incidents.Domain.Abstractions.InternetConnectionType"
+              }
+            ],
+            "description": "Internet connection type.\nNote that this enum might be expanded with new values in future.",
+            "example": "G5"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Information about a device."
+      },
+      "NG_SOS.Incidents.Domain.Abstractions.DeviceOs": {
+        "enum": [
+          "Unknown",
+          "iOS",
+          "Android",
+          "WindowsPhone",
+          "Aligator"
+        ],
+        "type": "string"
+      },
+      "NG_SOS.Incidents.Domain.Abstractions.EmergencyContact": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Contact name.",
+            "example": "Satoshi Nakamoto"
+          },
+          "phoneNumber": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NG_SOS.Abstractions.PhoneNumber"
+              }
+            ],
+            "description": "Phone number."
+          },
+          "email": {
+            "type": "string",
+            "description": "Email address.",
+            "nullable": true,
+            "example": "satoshi@vistomail.com"
+          },
+          "relationship": {
+            "type": "string",
+            "description": "Description of the contact.",
+            "nullable": true,
+            "example": "My alter ego"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Contact information."
+      },
+      "NG_SOS.Incidents.Domain.Abstractions.InternetConnectionType": {
+        "enum": [
+          "Unknown",
+          "NoConnection",
+          "WiFi",
+          "G2",
+          "G3",
+          "G4",
+          "G5"
+        ],
+        "type": "string"
+      },
+      "NG_SOS.Incidents.Domain.Abstractions.InvolvedPsapInfo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "example": "00000000-0000-0000-0000-000000000000"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NG_SOS.Abstractions.EmergencyServiceType"
+              }
+            ]
+          },
+          "priority": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "emergencyNumber": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "NG_SOS.Incidents.Domain.Abstractions.MedicData": {
+        "type": "object",
+        "properties": {
+          "sex": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NG_SOS.Incidents.Domain.Abstractions.Sex"
+              }
+            ],
+            "description": "Gender.",
+            "example": "Male"
+          },
+          "yearOfBirth": {
+            "type": "integer",
+            "description": "Year of birth.",
+            "format": "int32",
+            "nullable": true,
+            "example": 1956
+          },
+          "height": {
+            "type": "integer",
+            "description": "Height in centimeters.",
+            "format": "int32",
+            "nullable": true,
+            "example": 174
+          },
+          "weight": {
+            "type": "integer",
+            "description": "Weight in kilograms.",
+            "format": "int32",
+            "nullable": true,
+            "example": 62
+          },
+          "hearingImpairment": {
+            "type": "boolean",
+            "description": "Indication that the caller is suffering from either a partial or total inability to hear sounds.",
+            "example": false
+          },
+          "blind": {
+            "type": "boolean",
+            "description": "Indication that the caller is blind.",
+            "example": false
+          },
+          "diabetes": {
+            "type": "boolean",
+            "description": "Indication that the caller suffers from diabetes.",
+            "example": false
+          },
+          "speechDefect": {
+            "type": "boolean",
+            "description": "Indication that the caller has a speech disorder.",
+            "example": false
+          },
+          "heart": {
+            "type": "boolean",
+            "description": "Indication that the caller has heart problem(s).",
+            "example": false
+          },
+          "lungs": {
+            "type": "boolean",
+            "description": "Indication that the caller has problem(s) with lungs.",
+            "example": false
+          },
+          "mentalDisorders": {
+            "type": "boolean",
+            "description": "Indication that the caller is suffering from mental disorder(s).",
+            "example": false
+          },
+          "epilepsy": {
+            "type": "boolean",
+            "description": "Indication that the caller has epilepsy",
+            "example": false
+          },
+          "regularPrescription": {
+            "type": "string",
+            "description": "User text field. Regular prescription. Medications that the caller takes on regular basis.",
+            "nullable": true,
+            "example": "Riluzole, Zodac 10mg"
+          },
+          "note": {
+            "type": "string",
+            "description": "User text field. Indication that the caller has some other problem(s) that are not covered by other categories.",
+            "nullable": true,
+            "example": "I have been diagnosed with amyotrophic lateral sclerosis (ALS)"
+          },
+          "nextOfKinNote": {
+            "type": "string",
+            "description": "User text field. Information about next of kin",
+            "nullable": true,
+            "example": "My son have been diagnosed with amyotrophic lateral sclerosis (ALS)"
+          },
+          "temporaryInformation": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NG_SOS.Incidents.Domain.Abstractions.TemporaryInformation"
+              }
+            ],
+            "description": "User temporary information associated with the medical data.",
+            "nullable": true
+          },
+          "bloodType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NG_SOS.Incidents.Domain.Abstractions.BloodType"
+              }
+            ],
+            "description": "Blood type of the caller.",
+            "example": "ZeroNegative"
+          },
+          "lastUpdatedUtc": {
+            "type": "string",
+            "description": "Timestamp (in UTC) determining the last update of medical data.",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Medical information about a caller."
+      },
+      "NG_SOS.Incidents.Domain.Abstractions.Patient": {
+        "type": "object",
+        "properties": {
+          "phoneNumbers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NG_SOS.Abstractions.PhoneNumber"
+            },
+            "description": "Registered phone numbers.",
+            "example": [
+              "+420775123456"
+            ]
+          },
+          "fullname": {
+            "type": "string",
+            "description": "Full name.",
+            "nullable": true,
+            "example": "Hal Finney"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email address.",
+            "nullable": true,
+            "example": "hal@finney.org"
+          },
+          "insuranceNumber": {
+            "type": "string",
+            "description": "Insurance number.",
+            "nullable": true,
+            "example": "9305121234"
+          },
+          "languages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Languages caller is able to speak or at least understands passively.",
+            "example": [
+              "en"
+            ]
+          },
+          "permanentResidence": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NG_SOS.Incidents.Domain.Abstractions.PermanentResidence"
+              }
+            ],
+            "description": "Permanent residence.",
+            "nullable": true
+          },
+          "medicData": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NG_SOS.Incidents.Domain.Abstractions.MedicData"
+              }
+            ],
+            "description": "Medic data.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "NG_SOS.Incidents.Domain.Abstractions.PermanentResidence": {
+        "type": "object",
+        "properties": {
+          "fullAddress": {
+            "type": "string",
+            "description": "User-supplied textual address information",
+            "example": "Vachova 43/5, 602 00 Brno"
+          },
+          "hint": {
+            "type": "string",
+            "description": "Additional clarification for the first provided address line.",
+            "nullable": true,
+            "example": "1st floor, apartment to the right"
+          },
+          "geoPoint": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NG_SOS.Abstractions.Geography.GeoPoint"
+              }
+            ],
+            "description": "Representation of a geographic point using WGS84.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Information about permanent residence."
+      },
+      "NG_SOS.Incidents.Domain.Abstractions.Sex": {
+        "enum": [
+          "Unknown",
+          "Male",
+          "Female",
+          "Other"
+        ],
+        "type": "string"
+      },
+      "NG_SOS.Incidents.Domain.Abstractions.TemporaryInformation": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Temporary information.",
+            "example": "I'm using non-invasive ventilation."
+          },
+          "validUntilUtc": {
+            "type": "string",
+            "description": "Timestamp (in UTC) that determines the end of validity period for this information.",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Temporary (time-limited) information."
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}
