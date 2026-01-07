@@ -1,8 +1,8 @@
-﻿{
+{
   "openapi": "3.0.3",
   "info": {
     "title": "Portal URL Api",
-    "description": "Here you will find a description of each url of the portal. They are mainly used for easy integration into third party applications",
+    "description": "# Portal URL API\n\n## Overview\n\nThe Portal URL API provides URLs and endpoints for the NG SOS portal, facilitating easy integration into third-party applications.\n\n## API Documentation\n\nThis folder contains the OpenAPI specification for the Portal URL API.\n\n- **Version**: 1.0.0\n- **Contact**: mdybal@medicalit.eu\n\n## API Specification\n\nThe complete API specification is available in the [openapi.json](./openapi.json) file.\n\nYou can also view the interactive API documentation on our [API documentation website](https://medicalit-eu.github.io/ng-sos-apidoc/).\n\n## Key Features\n\n- Incident list overview\n- Incident creation with pre-filled forms\n- Incident detail viewing\n- Incident archive with filtering capabilities\n",
     "contact": {
       "email": "mdybal@medicalit.eu"
     },

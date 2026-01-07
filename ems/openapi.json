@@ -10,7 +10,8 @@
     "x-logo": {
       "altText": "NG SOS Logo",
       "url": "https://apidoc.ng-sos.com/logo.svg"
-    }
+    },
+    "description": "# NG SOS Emergency Message Server (EMS)\n\n## Overview\n\nThe NG SOS Emergency Message Server (EMS) is a critical component of the NG SOS platform that handles emergency message processing and management.\n\n## API Documentation\n\nThis folder contains the OpenAPI specification for the Emergency Message Server API.\n\n- **Version**: 1.0.0\n- **Contact**: Martin Dybal (mdybal@medicalit.eu)\n\n## API Specification\n\nThe complete API specification is available in the [openapi.json](./openapi.json) file.\n\nYou can also view the interactive API documentation on our [API documentation website](https://medicalit-eu.github.io/ng-sos-apidoc/).\n\n## Key Features\n\n- SMS reception and processing via Develogi integration\n- Emergency message handling\n- Integration endpoints for various emergency services\n"
   },
   "paths": {
     "/integrations/develogi/v1/sms-receive": {
@@ -168,6 +169,16 @@
           }
         },
         "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NG_SOS.EMS.Api.Abstractions.MobileApp.v1.CreateIncidentResponse"
+                }
+              }
+            }
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -210,16 +221,6 @@
           },
           "500": {
             "description": "Internal Server Error"
-          },
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NG_SOS.EMS.Api.Abstractions.MobileApp.v1.CreateIncidentResponse"
-                }
-              }
-            }
           }
         }
       }
@@ -257,6 +258,9 @@
           }
         },
         "responses": {
+          "200": {
+            "description": "OK"
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -299,9 +303,6 @@
           },
           "500": {
             "description": "Internal Server Error"
-          },
-          "200": {
-            "description": "OK"
           }
         }
       }
@@ -327,6 +328,9 @@
           }
         },
         "responses": {
+          "200": {
+            "description": "OK"
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -369,9 +373,6 @@
           },
           "500": {
             "description": "Internal Server Error"
-          },
-          "200": {
-            "description": "OK"
           }
         }
       }
@@ -397,6 +398,9 @@
           }
         },
         "responses": {
+          "200": {
+            "description": "OK"
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -439,9 +443,6 @@
           },
           "500": {
             "description": "Internal Server Error"
-          },
-          "200": {
-            "description": "OK"
           }
         }
       }
@@ -465,6 +466,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "OK"
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -507,9 +511,6 @@
           },
           "500": {
             "description": "Internal Server Error"
-          },
-          "200": {
-            "description": "OK"
           }
         }
       }
@@ -533,6 +534,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "OK"
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -575,9 +579,6 @@
           },
           "500": {
             "description": "Internal Server Error"
-          },
-          "200": {
-            "description": "OK"
           }
         }
       }
@@ -1184,7 +1185,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": { }
+        "additionalProperties": {}
       },
       "NG_SOS.Abstractions.App.AppInfo": {
         "type": "object",
@@ -2085,7 +2086,7 @@
   },
   "security": [
     {
-      "Bearer": [ ]
+      "Bearer": []
     }
   ]
 }

@@ -10,7 +10,8 @@
     "x-logo": {
       "altText": "NG SOS Logo",
       "url": "https://apidoc.ng-sos.com/logo.svg"
-    }
+    },
+    "description": "# NG SOS PSAP Connector Server\n\n## Overview\n\nThe NG SOS PSAP Connector Server provides connectivity and integration between the NG SOS platform and Public Safety Answering Points (PSAPs).\n\n## API Documentation\n\nThis folder contains the OpenAPI specification for the PSAP Connector Server API.\n\n- **Version**: 2.0.0\n- **Contact**: Martin Dybal (mdybal@medicalit.eu)\n\n## API Specification\n\nThe complete API specification is available in the [openapi.json](./openapi.json) file.\n\nYou can also view the interactive API documentation on our [API documentation website](https://medicalit-eu.github.io/ng-sos-apidoc/).\n\n## Key Features\n\n- PSAP integration and connectivity\n- Emergency call routing\n- System information and about endpoints\n- Secure authentication and authorization\n"
   },
   "paths": {
     "/about": {
@@ -600,7 +601,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": { }
+        "additionalProperties": {}
       },
       "NG_SOS.Abstractions.EmergencyServiceType": {
         "enum": [
@@ -1464,7 +1465,7 @@
   },
   "security": [
     {
-      "Bearer": [ ]
+      "Bearer": []
     }
   ]
 }
