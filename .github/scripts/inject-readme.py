@@ -66,8 +66,14 @@ def markdown_to_html(markdown_text):
     """
     html = markdown_text
     
-    # Convert code blocks first (before inline code)
-    html = re.sub(r'```\n(.*?)\n```', r'<pre><code>\1</code></pre>', html, flags=re.DOTALL)
+    # Convert code blocks first (before inline code) and protect them from further processing
+    code_blocks = []
+    def save_code_block(match):
+        # Store the code block and return a single-line placeholder
+        code_blocks.append(f'<pre><code>{match.group(1)}</code></pre>')
+        return f'\n__CODE_BLOCK_{len(code_blocks)-1}__\n'
+    
+    html = re.sub(r'```\n?(.*?)\n?```', save_code_block, html, flags=re.DOTALL)
     
     # Convert headers
     html = re.sub(r'^### (.+)$', r'<h3>\1</h3>', html, flags=re.MULTILINE)
@@ -81,7 +87,7 @@ def markdown_to_html(markdown_text):
     html = re.sub(r'\*\*([^\*]+)\*\*', r'<strong>\1</strong>', html)
     
     # Convert italic *text*
-    html = re.sub(r'(?<!\*)\*([^\*]+)\*(?!\*)', r'<em>\1</em>', html)
+    html = re.sub(r'\*([^\*]+)\*', r'<em>\1</em>', html)
     
     # Convert inline code `code`
     html = re.sub(r'`([^`]+)`', r'<code>\1</code>', html)
@@ -142,22 +148,25 @@ def markdown_to_html(markdown_text):
             html_lines.append('')
             continue
         
-        # Don't wrap if it's already an HTML element
-        if (stripped.startswith('<h') or 
+        # Don't wrap code block placeholders or HTML elements
+        if (stripped.startswith('__CODE_BLOCK_') or
+            stripped.startswith('<h') or 
             stripped.startswith('<ul>') or stripped.startswith('</ul>') or
             stripped.startswith('<ol>') or stripped.startswith('</ol>') or
             stripped.startswith('<pre>') or stripped.startswith('</pre>') or
             stripped.startswith('<li>') or stripped.startswith('</li>')):
             html_lines.append(line)
         else:
-            # Check if previous line was a header or list
-            prev_line = lines[i-1].strip() if i > 0 else ''
-            next_line = lines[i+1].strip() if i < len(lines) - 1 else ''
-            
             # Wrap regular text in paragraph tags
             html_lines.append(f'<p>{stripped}</p>')
     
-    return '\n'.join(html_lines)
+    html = '\n'.join(html_lines)
+    
+    # Restore code blocks
+    for i, code_block in enumerate(code_blocks):
+        html = html.replace(f'__CODE_BLOCK_{i}__', code_block)
+    
+    return html
 
 
 def inject_readme_to_index(index_path, readme_path):
