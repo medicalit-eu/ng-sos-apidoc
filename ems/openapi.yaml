@@ -1242,7 +1242,6 @@ components:
           schema:
             type: string
             format: uuid
-          required: false
       content:
         application/problem+json:
           schema:
@@ -1255,7 +1254,6 @@ components:
           schema:
             type: string
             format: uuid
-          required: false
       content:
         application/xml:
           schema:
@@ -1268,7 +1266,6 @@ components:
           schema:
             type: string
             format: uuid
-          required: false
       content:
         application/problem+json:
           schema:
@@ -1281,7 +1278,6 @@ components:
           schema:
             type: string
             format: uuid
-          required: false
       content:
         application/problem+json:
           schema:
@@ -1294,7 +1290,6 @@ components:
           schema:
             type: string
             format: uuid
-          required: false
       content:
         application/problem+json:
           schema:
@@ -1307,7 +1302,6 @@ components:
           schema:
             type: string
             format: uuid
-          required: false
       content:
         application/problem+json:
           schema:
@@ -1320,7 +1314,6 @@ components:
           schema:
             type: string
             format: uuid
-          required: false
       content:
         application/problem+json:
           schema:
@@ -1333,12 +1326,11 @@ components:
           schema:
             type: string
             format: uuid
-          required: false
         retry-after:
-          description: Time to wait before making a new request (in seconds)
+          description: Number of seconds to wait before making a new request (integer value as per RFC 7231)
           schema:
             type: integer
-          required: false
+            minimum: 0
       content:
         application/problem+json:
           schema:
@@ -1351,7 +1343,6 @@ components:
           schema:
             type: string
             format: uuid
-          required: false
       content:
         application/problem+json:
           schema:
@@ -1364,12 +1355,11 @@ components:
           schema:
             type: string
             format: uuid
-          required: false
         retry-after:
-          description: Time to wait before making a new request (in seconds)
+          description: Number of seconds to wait before making a new request (integer value as per RFC 7231)
           schema:
             type: integer
-          required: false
+            minimum: 0
       content:
         application/problem+json:
           schema:
