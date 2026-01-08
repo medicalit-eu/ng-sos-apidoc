@@ -105,13 +105,7 @@ paths:
         Authorization is required and must use "NG-SOS-PVT" instead of Bearer token.'
       operationId: Update
       parameters:
-      - name: id
-        in: path
-        description: Incident id
-        required: true
-        schema:
-          type: string
-          format: uuid
+      - $ref: '#/components/parameters/IncidentId'
       requestBody:
         content:
           application/json:
@@ -188,12 +182,7 @@ paths:
       summary: Confirm collaboration on incident
       operationId: ConfirmCollaboration
       parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-          format: uuid
+      - $ref: '#/components/parameters/IncidentId'
       responses:
         '400':
           $ref: '#/components/responses/BadRequest'
@@ -214,12 +203,7 @@ paths:
       summary: Reject collaboration on incident
       operationId: RejectCollaboration
       parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-          format: uuid
+      - $ref: '#/components/parameters/IncidentId'
       responses:
         '400':
           $ref: '#/components/responses/BadRequest'
@@ -1235,46 +1219,159 @@ components:
           nullable: true
       additionalProperties: false
       description: Temporary (time-limited) information.
+  parameters:
+    IncidentId:
+      name: id
+      in: path
+      description: Incident id
+      required: true
+      schema:
+        type: string
+        format: uuid
   securitySchemes:
     Bearer:
       type: http
       scheme: bearer
       bearerFormat: JWT
   responses:
-    Forbidden:
-      description: Forbidden
+    BadRequest:
+      description: Bad Request
+      headers:
+        x-correlation-id:
+          description: Unique identifier for tracking the request across services
+          schema:
+            type: string
+            format: uuid
+          required: false
       content:
-        application/json:
+        application/problem+json:
           schema:
             $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
     BadRequestXml:
       description: Bad Request
+      headers:
+        x-correlation-id:
+          description: Unique identifier for tracking the request across services
+          schema:
+            type: string
+            format: uuid
+          required: false
       content:
         application/xml:
           schema:
             $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+    Unauthorized:
+      description: Unauthorized
+      headers:
+        x-correlation-id:
+          description: Unique identifier for tracking the request across services
+          schema:
+            type: string
+            format: uuid
+          required: false
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+    Forbidden:
+      description: Forbidden
+      headers:
+        x-correlation-id:
+          description: Unique identifier for tracking the request across services
+          schema:
+            type: string
+            format: uuid
+          required: false
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+    NotFound:
+      description: Not Found
+      headers:
+        x-correlation-id:
+          description: Unique identifier for tracking the request across services
+          schema:
+            type: string
+            format: uuid
+          required: false
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+    Conflict:
+      description: Conflict
+      headers:
+        x-correlation-id:
+          description: Unique identifier for tracking the request across services
+          schema:
+            type: string
+            format: uuid
+          required: false
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
     UnsupportedMediaType:
       description: Unsupported Media Type
+      headers:
+        x-correlation-id:
+          description: Unique identifier for tracking the request across services
+          schema:
+            type: string
+            format: uuid
+          required: false
       content:
-        application/json:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+    TooManyRequests:
+      description: Too Many Requests
+      headers:
+        x-correlation-id:
+          description: Unique identifier for tracking the request across services
+          schema:
+            type: string
+            format: uuid
+          required: false
+        retry-after:
+          description: Time to wait before making a new request (in seconds)
+          schema:
+            type: integer
+          required: false
+      content:
+        application/problem+json:
           schema:
             $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
     InternalServerError:
       description: Internal Server Error
+      headers:
+        x-correlation-id:
+          description: Unique identifier for tracking the request across services
+          schema:
+            type: string
+            format: uuid
+          required: false
       content:
-        application/json:
+        application/problem+json:
           schema:
             $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-    BadRequest:
-      description: Bad Request
-      content:
-        application/json:
+    ServiceUnavailable:
+      description: Service Unavailable
+      headers:
+        x-correlation-id:
+          description: Unique identifier for tracking the request across services
           schema:
-            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-    Unauthorized:
-      description: Unauthorized
+            type: string
+            format: uuid
+          required: false
+        retry-after:
+          description: Time to wait before making a new request (in seconds)
+          schema:
+            type: integer
+          required: false
       content:
-        application/json:
+        application/problem+json:
           schema:
             $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
 security:
