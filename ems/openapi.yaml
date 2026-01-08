@@ -1,6 +1,16 @@
 openapi: 3.0.4
 info:
   title: NG SOS Emergency message server
+  description: |
+    The NG SOS Emergency Message Server (EMS) is a critical component of the NG SOS platform that handles emergency message processing and management.
+    
+    ## Key Features
+    
+    - SMS reception and processing via Develogi integration
+    - Emergency message handling
+    - Integration endpoints for various emergency services
+    - Mobile app incident management
+    - PSAP connector integration
   contact:
     name: Martin Dybal
     email: mdybal@medicalit.eu
