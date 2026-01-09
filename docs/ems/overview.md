@@ -73,7 +73,7 @@ To start using the EMS API:
 
 1. Review the [Getting Started guide](../getting-started.md) for authentication
 2. Check the [EMS How-To guide](./how-to.md) for common tasks
-3. Explore the [OpenAPI specification](../../specs/ng-sos-ems-v1.0.0.yaml) for complete endpoint details
+3. Explore the [OpenAPI specification](https://github.com/medicalit-eu/ng-sos-apidoc/blob/mahttps://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-ems-v1.0.0.yaml) for complete endpoint details
 
 ## Data Model
 
@@ -109,5 +109,5 @@ EMS is designed for high availability:
 ## Next Steps
 
 - Learn [how to perform common tasks](./how-to.md) with EMS
-- Review the [complete API reference](../../specs/ng-sos-ems-v1.0.0.yaml)
+- Review the [complete API reference](https://github.com/medicalit-eu/ng-sos-apidoc/blob/mahttps://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-ems-v1.0.0.yaml)
 - Explore [PSAP Connector integration](../psap-connector/overview.md)

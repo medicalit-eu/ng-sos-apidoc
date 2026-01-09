@@ -41,7 +41,6 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          routeBasePath: '/', // Serve docs at the site's root
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -89,19 +88,19 @@ const config: Config = {
           items: [
             {
               label: 'Getting Started',
-              to: '/getting-started',
+              to: '/docs/getting-started',
             },
             {
               label: 'EMS API',
-              to: '/ems/overview',
+              to: '/docs/ems/overview',
             },
             {
               label: 'PSAP Connector',
-              to: '/psap-connector/overview',
+              to: '/docs/psap-connector/overview',
             },
             {
               label: 'Portal URL API',
-              to: '/portal-url/overview',
+              to: '/docs/portal-url/overview',
             },
           ],
         },

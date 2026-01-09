@@ -469,7 +469,7 @@ for incident in incidents:
 
 ## Additional Resources
 
-- [PSAP Connector OpenAPI Specification](../../specs/ng-sos-psap-connector-v2.0.0.yaml)
+- [PSAP Connector OpenAPI Specification](https://github.com/medicalit-eu/ng-sos-apidoc/blob/mahttps://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-psap-connector-v2.0.0.yaml)
 - [Getting Started Guide](../getting-started.md)
 - [EMS Documentation](../ems/overview.md)
 

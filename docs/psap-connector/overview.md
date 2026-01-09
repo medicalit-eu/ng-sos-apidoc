@@ -88,7 +88,7 @@ To start using the PSAP Connector API:
 
 1. Review the [Getting Started guide](../getting-started.md) for authentication
 2. Check the [PSAP Connector How-To guide](./how-to.md) for common tasks
-3. Explore the [OpenAPI specification](../../specs/ng-sos-psap-connector-v2.0.0.yaml)
+3. Explore the [OpenAPI specification](https://github.com/medicalit-eu/ng-sos-apidoc/blob/mahttps://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-psap-connector-v2.0.0.yaml)
 
 ## Data Model
 
@@ -193,6 +193,6 @@ Version 2.0 introduces:
 ## Next Steps
 
 - Learn [how to perform common tasks](./how-to.md) with PSAP Connector
-- Review the [complete API reference](../../specs/ng-sos-psap-connector-v2.0.0.yaml)
+- Review the [complete API reference](https://github.com/medicalit-eu/ng-sos-apidoc/blob/mahttps://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-psap-connector-v2.0.0.yaml)
 - Explore [EMS integration](../ems/overview.md)
 - Understand [Portal URL API](../portal-url/overview.md) for UI integration
