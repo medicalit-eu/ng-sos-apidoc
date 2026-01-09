@@ -1,0 +1,35 @@
+---
+title: PSAP Connector API Reference
+sidebar_label: API Reference
+sidebar_position: 1
+---
+
+import { ApiReferenceReact } from '@scalar/api-reference-react'
+import '@scalar/api-reference-react/style.css'
+
+# PSAP Connector API Reference
+
+Interactive API documentation for the PSAP Connector Server.
+
+<ApiReferenceReact
+  configuration={{
+    spec: {
+      url: '/ng-sos-apidoc/specs/ng-sos-psap-connector-v2.0.0.yaml',
+    },
+    theme: 'default',
+    hideModels: false,
+    hideDownloadButton: false,
+    darkMode: true,
+    layout: 'modern',
+    defaultOpenAllTags: false,
+    showSidebar: true,
+    authentication: {
+      preferredSecurityScheme: 'Bearer',
+    },
+    customCss: `
+      .scalar-api-reference {
+        margin-top: 2rem;
+      }
+    `,
+  }}
+/>

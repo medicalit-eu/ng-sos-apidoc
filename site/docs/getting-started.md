@@ -135,11 +135,11 @@ Now that you understand the basics, explore the specific APIs:
 - [PSAP Connector Server](./psap-connector/overview.md)
 - [Portal URL API](./portal-url/overview.md)
 
-Or dive into the complete [API Reference](https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/) documentation.
+Or explore the interactive API references for each API.
 
 ## Getting Help
 
 If you encounter issues or have questions:
-- Check the [OpenAPI specifications](https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/) for detailed endpoint documentation
+- Review the API reference pages for detailed endpoint documentation
 - Review the how-to guides for each API
 - Contact support at mdybal@medicalit.eu

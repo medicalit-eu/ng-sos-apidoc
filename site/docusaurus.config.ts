@@ -41,16 +41,32 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/medicalit-eu/ng-sos-apidoc/tree/main/',
+          routeBasePath: 'docs',
         },
         blog: false, // Disable blog
         theme: {
           customCss: './src/css/custom.css',
         },
       } satisfies Preset.Options,
+    ],
+  ],
+
+  plugins: [
+    [
+      '@scalar/docusaurus',
+      {
+        label: 'Scalar',
+        route: '/scalar',
+        configuration: {
+          theme: 'default',
+          hideModels: false,
+          hideDownloadButton: false,
+          darkMode: true,
+          layout: 'modern',
+          defaultOpenAllTags: false,
+          showSidebar: true,
+        },
+      },
     ],
   ],
 
@@ -72,11 +88,6 @@ const config: Config = {
           sidebarId: 'docsSidebar',
           position: 'left',
           label: 'Documentation',
-        },
-        {
-          href: 'https://github.com/medicalit-eu/ng-sos-apidoc',
-          label: 'GitHub',
-          position: 'right',
         },
       ],
     },
@@ -108,26 +119,22 @@ const config: Config = {
           title: 'API Reference',
           items: [
             {
-              label: 'EMS OpenAPI Spec',
-              href: 'https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-ems-v1.0.0.yaml',
+              label: 'EMS API Reference',
+              to: '/docs/ems/api-reference',
             },
             {
-              label: 'PSAP Connector Spec',
-              href: 'https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-psap-connector-v2.0.0.yaml',
+              label: 'PSAP Connector API Reference',
+              to: '/docs/psap-connector/api-reference',
             },
             {
-              label: 'Portal URL Spec',
-              href: 'https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-portal-url-v1.0.0.yaml',
+              label: 'Portal URL API Reference',
+              to: '/docs/portal-url/api-reference',
             },
           ],
         },
         {
           title: 'More',
           items: [
-            {
-              label: 'GitHub',
-              href: 'https://github.com/medicalit-eu/ng-sos-apidoc',
-            },
             {
               label: 'Contact',
               href: 'mailto:mdybal@medicalit.eu',
