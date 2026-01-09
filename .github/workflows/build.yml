@@ -33,7 +33,7 @@ jobs:
       - name: Install Docusaurus dependencies
         run: |
           cd site
-          npm ci
+          npm install
 
       - name: Generate llms-full.txt
         run: |
