@@ -8,7 +8,7 @@ type Props = WrapperProps<typeof LayoutType>;
 
 export default function LayoutWrapper(props: Props): JSX.Element {
   const location = useLocation();
-  const isApiReference = location.pathname.includes('/api-reference');
+  const isApiReference = location.pathname.endsWith('/api-reference');
 
   return (
     <div className={isApiReference ? 'api-reference-page' : ''} style={{width: '100%'}}>

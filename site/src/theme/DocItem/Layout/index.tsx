@@ -8,7 +8,7 @@ type Props = WrapperProps<typeof LayoutType>;
 
 export default function LayoutWrapper(props: Props): JSX.Element {
   const {metadata} = useDoc();
-  const isApiReference = metadata.id.includes('api-reference');
+  const isApiReference = metadata.id.endsWith('/api-reference');
 
   if (isApiReference) {
     return (
