@@ -51,25 +51,6 @@ const config: Config = {
     ],
   ],
 
-  plugins: [
-    [
-      '@scalar/docusaurus',
-      {
-        label: 'Scalar',
-        route: '/scalar',
-        configuration: {
-          theme: 'default',
-          hideModels: false,
-          hideDownloadButton: false,
-          darkMode: true,
-          layout: 'modern',
-          defaultOpenAllTags: false,
-          showSidebar: true,
-        },
-      },
-    ],
-  ],
-
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
@@ -121,14 +102,17 @@ const config: Config = {
             {
               label: 'EMS API Reference',
               to: '/docs/ems/api-reference',
+              target: '_blank',
             },
             {
               label: 'PSAP Connector API Reference',
               to: '/docs/psap-connector/api-reference',
+              target: '_blank',
             },
             {
               label: 'Portal URL API Reference',
               to: '/docs/portal-url/api-reference',
+              target: '_blank',
             },
           ],
         },
