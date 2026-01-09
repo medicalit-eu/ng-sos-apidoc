@@ -509,7 +509,7 @@ function EmergencyButton({ type, location, description }) {
 
 ## Additional Resources
 
-- [Portal URL OpenAPI Specification](https://github.com/medicalit-eu/ng-sos-apidoc/blob/mahttps://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-portal-url-v1.0.0.yaml)
+- [Portal URL OpenAPI Specification](https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-portal-url-v1.0.0.yaml)
 - [Getting Started Guide](../getting-started.md)
 - [EMS Documentation](../ems/overview.md)
 - [PSAP Connector Documentation](../psap-connector/overview.md)

@@ -254,7 +254,7 @@ Test your integration thoroughly:
 
 ## Additional Resources
 
-- [EMS OpenAPI Specification](https://github.com/medicalit-eu/ng-sos-apidoc/blob/mahttps://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-ems-v1.0.0.yaml)
+- [EMS OpenAPI Specification](https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-ems-v1.0.0.yaml)
 - [Getting Started Guide](../getting-started.md)
 - [PSAP Connector Documentation](../psap-connector/overview.md)
 

@@ -376,7 +376,7 @@ To start using the EMS API:
 
 1. Review the [Getting Started guide](../getting-started.md) for authentication
 2. Check the [EMS How-To guide](./how-to.md) for common tasks
-3. Explore the [OpenAPI specification](https://github.com/medicalit-eu/ng-sos-apidoc/blob/mahttps://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-ems-v1.0.0.yaml) for complete endpoint details
+3. Explore the [OpenAPI specification](https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-ems-v1.0.0.yaml) for complete endpoint details
 
 ## Data Model
 
@@ -412,7 +412,7 @@ EMS is designed for high availability:
 ## Next Steps
 
 - Learn [how to perform common tasks](./how-to.md) with EMS
-- Review the [complete API reference](https://github.com/medicalit-eu/ng-sos-apidoc/blob/mahttps://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-ems-v1.0.0.yaml)
+- Review the [complete API reference](https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-ems-v1.0.0.yaml)
 - Explore [PSAP Connector integration](../psap-connector/overview.md)
 
 
@@ -678,7 +678,7 @@ Test your integration thoroughly:
 
 ## Additional Resources
 
-- [EMS OpenAPI Specification](https://github.com/medicalit-eu/ng-sos-apidoc/blob/mahttps://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-ems-v1.0.0.yaml)
+- [EMS OpenAPI Specification](https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-ems-v1.0.0.yaml)
 - [Getting Started Guide](../getting-started.md)
 - [PSAP Connector Documentation](../psap-connector/overview.md)
 
@@ -785,7 +785,7 @@ To start using the PSAP Connector API:
 
 1. Review the [Getting Started guide](../getting-started.md) for authentication
 2. Check the [PSAP Connector How-To guide](./how-to.md) for common tasks
-3. Explore the [OpenAPI specification](https://github.com/medicalit-eu/ng-sos-apidoc/blob/mahttps://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-psap-connector-v2.0.0.yaml)
+3. Explore the [OpenAPI specification](https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-psap-connector-v2.0.0.yaml)
 
 ## Data Model
 
@@ -890,7 +890,7 @@ Version 2.0 introduces:
 ## Next Steps
 
 - Learn [how to perform common tasks](./how-to.md) with PSAP Connector
-- Review the [complete API reference](https://github.com/medicalit-eu/ng-sos-apidoc/blob/mahttps://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-psap-connector-v2.0.0.yaml)
+- Review the [complete API reference](https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-psap-connector-v2.0.0.yaml)
 - Explore [EMS integration](../ems/overview.md)
 - Understand [Portal URL API](../portal-url/overview.md) for UI integration
 
@@ -1372,7 +1372,7 @@ for incident in incidents:
 
 ## Additional Resources
 
-- [PSAP Connector OpenAPI Specification](https://github.com/medicalit-eu/ng-sos-apidoc/blob/mahttps://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-psap-connector-v2.0.0.yaml)
+- [PSAP Connector OpenAPI Specification](https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-psap-connector-v2.0.0.yaml)
 - [Getting Started Guide](../getting-started.md)
 - [EMS Documentation](../ems/overview.md)
 
@@ -1467,7 +1467,7 @@ To use the Portal URL API:
 
 1. Review the [Getting Started guide](../getting-started.md) for authentication
 2. Check the [Portal URL How-To guide](./how-to.md) for URL generation
-3. Explore the [OpenAPI specification](https://github.com/medicalit-eu/ng-sos-apidoc/blob/mahttps://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-portal-url-v1.0.0.yaml)
+3. Explore the [OpenAPI specification](https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-portal-url-v1.0.0.yaml)
 
 ## URL Structure
 
@@ -1614,7 +1614,7 @@ Track Portal URL API usage:
 ## Next Steps
 
 - Learn [how to generate URLs](./how-to.md) for different scenarios
-- Review the [complete API reference](https://github.com/medicalit-eu/ng-sos-apidoc/blob/mahttps://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-portal-url-v1.0.0.yaml)
+- Review the [complete API reference](https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-portal-url-v1.0.0.yaml)
 - Explore [EMS](../ems/overview.md) and [PSAP Connector](../psap-connector/overview.md) APIs
 
 
@@ -2135,7 +2135,7 @@ function EmergencyButton({ type, location, description }) {
 
 ## Additional Resources
 
-- [Portal URL OpenAPI Specification](https://github.com/medicalit-eu/ng-sos-apidoc/blob/mahttps://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-portal-url-v1.0.0.yaml)
+- [Portal URL OpenAPI Specification](https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-portal-url-v1.0.0.yaml)
 - [Getting Started Guide](../getting-started.md)
 - [EMS Documentation](../ems/overview.md)
 - [PSAP Connector Documentation](../psap-connector/overview.md)
