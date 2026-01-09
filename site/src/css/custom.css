@@ -29,8 +29,80 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
+/* Hide Docusaurus sidebar on API reference pages */
+.api-reference-page aside[class*="sidebar"],
+.api-reference-page aside[class*="Sidebar"],
+.api-reference-page aside.theme-doc-sidebar-container,
+.api-reference-page .theme-doc-sidebar-container,
+.api-reference-page [class*="docSidebarContainer"] {
+  display: none !important;
+}
+
+/* Make doc root full width on API reference pages */
+.api-reference-page [class*="docRoot"],
+.api-reference-page .docRoot {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Make main content full width on API reference pages */
+.api-reference-page .container {
+  max-width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.api-reference-page .row {
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+.api-reference-page .row > .col,
+.api-reference-page .row > div[class*="col"] {
+  max-width: 100% !important;
+  flex: 0 0 100% !important;
+  padding: 0 !important;
+}
+
+/* Ensure article takes full width */
+.api-reference-page article {
+  max-width: 100% !important;
+}
+
+/* Ensure main wrapper is full width */
+.api-reference-page .main-wrapper,
+.api-reference-page [class*="mainWrapper"] {
+  max-width: 100% !important;
+}
+
+.api-reference-page main,
+.api-reference-page [class*="docMainContainer"] {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
 /* Make Scalar API reference full width */
+.api-reference-page .scalar-api-reference,
 .scalar-api-reference {
   width: 100% !important;
   max-width: 100% !important;
+}
+
+/* Additional targeting for content area */
+.api-reference-page div[class*="docItemContainer"] {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+/* Remove hover effect and pointer events only on the doc sidebar link */
+.navbar__items .navbar__link[href*="/docs/"]:only-of-type {
+  cursor: default;
+  pointer-events: none;
+}
+
+.navbar__items .navbar__link[href*="/docs/"]:only-of-type:hover {
+  color: inherit;
+  text-decoration: none;
 }
