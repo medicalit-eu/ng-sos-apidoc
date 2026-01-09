@@ -34,8 +34,3 @@
   width: 100% !important;
   max-width: 100% !important;
 }
-
-/* Ensure the container for API reference pages allows full width */
-article:has(.scalar-api-reference) .theme-doc-markdown {
-  max-width: 100% !important;
-}
