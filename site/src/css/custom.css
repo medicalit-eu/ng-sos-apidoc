@@ -35,13 +35,7 @@
   max-width: 100% !important;
 }
 
-/* Ensure the container for API reference pages is full width */
-article .theme-doc-markdown {
+/* Ensure the container for API reference pages allows full width */
+article:has(.scalar-api-reference) .theme-doc-markdown {
   max-width: 100% !important;
-}
-
-article .theme-doc-markdown .scalar-api-reference {
-  margin-left: calc(-1 * var(--ifm-spacing-horizontal));
-  margin-right: calc(-1 * var(--ifm-spacing-horizontal));
-  width: calc(100% + 2 * var(--ifm-spacing-horizontal)) !important;
 }
