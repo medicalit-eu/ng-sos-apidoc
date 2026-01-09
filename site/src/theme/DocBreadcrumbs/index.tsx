@@ -32,7 +32,17 @@ function BreadcrumbsItemLink({
     return (
       <button 
         className={clsx(className, styles.categoryLink)}
-        onClick={onToggleSidebar}
+        onClick={(e) => {
+          e.preventDefault();
+          // Try to trigger the mobile navigation toggle
+          const navToggle = document.querySelector('[aria-label="Toggle navigation bar"]') as HTMLButtonElement;
+          if (navToggle) {
+            navToggle.click();
+          } else {
+            // Fallback to the context toggle
+            onToggleSidebar();
+          }
+        }}
         type="button"
         aria-label="Toggle sidebar"
       >
@@ -75,6 +85,10 @@ export default function DocBreadcrumbs(): ReactNode {
   const breadcrumbs = useSidebarBreadcrumbs();
   const homePageRoute = useHomePageRoute();
   const sidebarToggle = useSidebarToggle();
+  
+  // Check if we're on an API reference page where sidebar is hidden
+  const isApiReferencePage = typeof window !== 'undefined' && 
+    document.querySelector('.api-reference-page') !== null;
 
   if (!breadcrumbs) {
     return null;
@@ -103,8 +117,9 @@ export default function DocBreadcrumbs(): ReactNode {
                 ? undefined
                 : item.href;
             
-            // Make category items clickable to toggle sidebar when it's hidden
-            const shouldToggleSidebar = isCategory && !isLast && sidebarToggle?.hiddenSidebarContainer;
+            // Make category items clickable to toggle sidebar when sidebar is hidden
+            const shouldToggleSidebar = isCategory && !isLast && 
+              (sidebarToggle?.hiddenSidebarContainer || isApiReferencePage);
             
             return (
               <BreadcrumbsItem key={idx} active={isLast}>
