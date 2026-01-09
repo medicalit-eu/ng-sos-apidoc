@@ -106,3 +106,14 @@
   color: inherit;
   text-decoration: none;
 }
+
+/* Fix z-index for Scalar search to not overlap mobile menu */
+.scalar-api-reference [class*="search"],
+.scalar-api-reference [data-testid*="search"] {
+  z-index: 1 !important;
+}
+
+/* Ensure Docusaurus sidebar has higher z-index than Scalar search */
+aside.theme-doc-sidebar-container {
+  z-index: 10;
+}

@@ -7,6 +7,7 @@ import Link from '@docusaurus/Link';
 import {translate} from '@docusaurus/Translate';
 import HomeBreadcrumbItem from '@theme/DocBreadcrumbs/Items/Home';
 import DocBreadcrumbsStructuredData from '@theme/DocBreadcrumbs/StructuredData';
+import {useSidebarToggle} from '@site/src/contexts/SidebarToggleContext';
 
 import styles from './styles.module.css';
 
@@ -15,12 +16,31 @@ function BreadcrumbsItemLink({
   children,
   href,
   isLast,
+  isCategory,
+  onToggleSidebar,
 }: {
   children: ReactNode;
   href: string | undefined;
   isLast: boolean;
+  isCategory?: boolean;
+  onToggleSidebar?: () => void;
 }): ReactNode {
   const className = 'breadcrumbs__link';
+  
+  // For category items, make them clickable to toggle sidebar
+  if (isCategory && onToggleSidebar) {
+    return (
+      <button 
+        className={clsx(className, styles.categoryLink)}
+        onClick={onToggleSidebar}
+        type="button"
+        aria-label="Toggle sidebar"
+      >
+        <span>{children}</span>
+      </button>
+    );
+  }
+  
   if (isLast) {
     return <span className={className}>{children}</span>;
   }
@@ -54,6 +74,7 @@ function BreadcrumbsItem({
 export default function DocBreadcrumbs(): ReactNode {
   const breadcrumbs = useSidebarBreadcrumbs();
   const homePageRoute = useHomePageRoute();
+  const sidebarToggle = useSidebarToggle();
 
   if (!breadcrumbs) {
     return null;
@@ -76,13 +97,23 @@ export default function DocBreadcrumbs(): ReactNode {
           {homePageRoute && <HomeBreadcrumbItem />}
           {breadcrumbs.map((item, idx) => {
             const isLast = idx === breadcrumbs.length - 1;
+            const isCategory = item.type === 'category';
             const href =
-              item.type === 'category' && item.linkUnlisted
+              isCategory && item.linkUnlisted
                 ? undefined
                 : item.href;
+            
+            // Make category items clickable to toggle sidebar when it's hidden
+            const shouldToggleSidebar = isCategory && !isLast && sidebarToggle?.hiddenSidebarContainer;
+            
             return (
               <BreadcrumbsItem key={idx} active={isLast}>
-                <BreadcrumbsItemLink href={href} isLast={isLast}>
+                <BreadcrumbsItemLink 
+                  href={shouldToggleSidebar ? undefined : href} 
+                  isLast={isLast}
+                  isCategory={shouldToggleSidebar}
+                  onToggleSidebar={shouldToggleSidebar ? sidebarToggle?.toggleSidebar : undefined}
+                >
                   {item.label}
                 </BreadcrumbsItemLink>
               </BreadcrumbsItem>

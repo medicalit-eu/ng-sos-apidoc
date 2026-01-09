@@ -2,3 +2,23 @@
   --ifm-breadcrumb-size-multiplier: 0.8;
   margin-bottom: 0.8rem;
 }
+
+.categoryLink {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  display: inline;
+}
+
+.categoryLink:hover {
+  background-color: var(--ifm-breadcrumb-item-background-active, transparent);
+  text-decoration: underline;
+}
+
+.categoryLink span {
+  text-decoration: inherit;
+}
