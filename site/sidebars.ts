@@ -28,6 +28,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Emergency Message Server',
       items: [
+        'ems/api-reference',
         'ems/overview',
         'ems/how-to',
       ],
@@ -36,6 +37,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'PSAP Connector',
       items: [
+        'psap-connector/api-reference',
         'psap-connector/overview',
         'psap-connector/how-to',
       ],
@@ -44,6 +46,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Portal URL API',
       items: [
+        'portal-url/api-reference',
         'portal-url/overview',
         'portal-url/how-to',
       ],

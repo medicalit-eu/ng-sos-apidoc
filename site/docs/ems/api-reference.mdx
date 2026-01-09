@@ -1,0 +1,35 @@
+---
+title: EMS API Reference
+sidebar_label: API Reference
+sidebar_position: 1
+---
+
+import { ApiReferenceReact } from '@scalar/api-reference-react'
+import '@scalar/api-reference-react/style.css'
+
+# EMS API Reference
+
+Interactive API documentation for the Emergency Message Server.
+
+<ApiReferenceReact
+  configuration={{
+    spec: {
+      url: '/ng-sos-apidoc/specs/ng-sos-ems-v1.0.0.yaml',
+    },
+    theme: 'default',
+    hideModels: false,
+    hideDownloadButton: false,
+    darkMode: true,
+    layout: 'modern',
+    defaultOpenAllTags: false,
+    showSidebar: true,
+    authentication: {
+      preferredSecurityScheme: 'bearerAuth',
+    },
+    customCss: `
+      .scalar-api-reference {
+        margin-top: 2rem;
+      }
+    `,
+  }}
+/>

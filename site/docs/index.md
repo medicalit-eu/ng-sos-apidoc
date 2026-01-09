@@ -37,10 +37,10 @@ New to NG SOS? Start with our [Getting Started guide](./getting-started.md) to l
 
 ## API Reference
 
-Complete OpenAPI specifications are available for each API:
-- [EMS OpenAPI Spec](https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-ems-v1.0.0.yaml)
-- [PSAP Connector OpenAPI Spec](https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-psap-connector-v2.0.0.yaml)
-- [Portal URL OpenAPI Spec](https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-portal-url-v1.0.0.yaml)
+Interactive API documentation is available for each API:
+- [EMS API Reference](./ems/api-reference.mdx)
+- [PSAP Connector API Reference](./psap-connector/api-reference.mdx)
+- [Portal URL API Reference](./portal-url/api-reference.mdx)
 
 ## SDK Support
 
@@ -55,7 +55,6 @@ SDKs are automatically generated from our OpenAPI specifications to ensure they 
 
 For questions, issues, or feedback:
 - **Email**: mdybal@medicalit.eu
-- **GitHub**: [medicalit-eu/ng-sos-apidoc](https://github.com/medicalit-eu/ng-sos-apidoc)
 
 ## License
 
