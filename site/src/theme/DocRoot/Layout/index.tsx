@@ -10,13 +10,9 @@ export default function LayoutWrapper(props: Props): JSX.Element {
   const location = useLocation();
   const isApiReference = location.pathname.includes('/api-reference');
 
-  if (isApiReference) {
-    return (
-      <div className="api-reference-page">
-        <Layout {...props} />
-      </div>
-    );
-  }
-
-  return <Layout {...props} />;
+  return (
+    <div className={isApiReference ? 'api-reference-page' : ''} style={{width: '100%'}}>
+      <Layout {...props} />
+    </div>
+  );
 }
