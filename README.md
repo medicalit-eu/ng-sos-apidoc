@@ -88,7 +88,7 @@ ng-sos-apidoc/
 
 ### Prerequisites
 
-- **Node.js 20+** - Required for Docusaurus
+- **Node.js >=20.0** - Required for Docusaurus
 - **Bash** - For running build scripts (pre-installed on macOS/Linux, use WSL or Git Bash on Windows)
 - **Git** - For version control
 - **(Optional) OpenAPI Generator CLI** - For SDK generation (installed automatically by script if needed)
