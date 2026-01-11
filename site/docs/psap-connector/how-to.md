@@ -469,7 +469,7 @@ for incident in incidents:
 
 ## Additional Resources
 
-- [PSAP Connector API Reference](./api-reference.mdx)
+- [PSAP Connector API Reference](./api-reference)
 - [Getting Started Guide](../getting-started.md)
 - [EMS Documentation](../ems/overview.md)
 

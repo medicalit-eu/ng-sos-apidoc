@@ -254,7 +254,7 @@ Test your integration thoroughly:
 
 ## Additional Resources
 
-- [EMS API Reference](./api-reference.mdx)
+- [EMS API Reference](./api-reference)
 - [Getting Started Guide](../getting-started.md)
 - [PSAP Connector Documentation](../psap-connector/overview.md)
 
