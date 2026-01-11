@@ -73,7 +73,7 @@ To start using the EMS API:
 
 1. Review the [Getting Started guide](../getting-started.md) for authentication
 2. Check the [EMS How-To guide](./how-to.md) for common tasks
-3. Explore the [EMS API Reference](./api-reference.mdx) for complete endpoint details
+3. Explore the [EMS API Reference](./api-reference) for complete endpoint details
 
 ## Data Model
 
@@ -109,5 +109,5 @@ EMS is designed for high availability:
 ## Next Steps
 
 - Learn [how to perform common tasks](./how-to.md) with EMS
-- Review the [complete API reference](./api-reference.mdx)
+- Review the [complete API reference](./api-reference)
 - Explore [PSAP Connector integration](../psap-connector/overview.md)

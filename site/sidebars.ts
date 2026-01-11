@@ -28,27 +28,39 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Emergency Message Server',
       items: [
-        'ems/api-reference',
         'ems/overview',
         'ems/how-to',
+        {
+          type: 'link',
+          label: 'API Reference',
+          href: '/ng-sos-apidoc/docs/ems/api-reference/',
+        },
       ],
     },
     {
       type: 'category',
       label: 'PSAP Connector',
       items: [
-        'psap-connector/api-reference',
         'psap-connector/overview',
         'psap-connector/how-to',
+        {
+          type: 'link',
+          label: 'API Reference',
+          href: '/ng-sos-apidoc/docs/psap-connector/api-reference/',
+        },
       ],
     },
     {
       type: 'category',
       label: 'Portal URL API',
       items: [
-        'portal-url/api-reference',
         'portal-url/overview',
         'portal-url/how-to',
+        {
+          type: 'link',
+          label: 'API Reference',
+          href: '/ng-sos-apidoc/docs/portal-url/api-reference/',
+        },
       ],
     },
   ],

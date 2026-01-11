@@ -49,6 +49,31 @@ const config: Config = {
         },
       } satisfies Preset.Options,
     ],
+    [
+      'redocusaurus',
+      {
+        specs: [
+          {
+            id: 'ems-api',
+            spec: 'static/specs/ng-sos-ems-v1.0.0.yaml',
+            route: '/docs/ems/api-reference/',
+          },
+          {
+            id: 'psap-connector-api',
+            spec: 'static/specs/ng-sos-psap-connector-v2.0.0.yaml',
+            route: '/docs/psap-connector/api-reference/',
+          },
+          {
+            id: 'portal-url-api',
+            spec: 'static/specs/ng-sos-portal-url-v1.0.0.yaml',
+            route: '/docs/portal-url/api-reference/',
+          },
+        ],
+        theme: {
+          primaryColor: '#1890ff',
+        },
+      },
+    ],
   ],
 
   themeConfig: {

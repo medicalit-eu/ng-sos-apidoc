@@ -38,9 +38,9 @@ New to NG SOS? Start with our [Getting Started guide](./getting-started.md) to l
 ## API Reference
 
 Interactive API documentation is available for each API:
-- [EMS API Reference](./ems/api-reference.mdx)
-- [PSAP Connector API Reference](./psap-connector/api-reference.mdx)
-- [Portal URL API Reference](./portal-url/api-reference.mdx)
+- [EMS API Reference](./ems/api-reference)
+- [PSAP Connector API Reference](./psap-connector/api-reference)
+- [Portal URL API Reference](./portal-url/api-reference)
 
 ## SDK Support
 

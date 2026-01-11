@@ -88,7 +88,7 @@ To start using the PSAP Connector API:
 
 1. Review the [Getting Started guide](../getting-started.md) for authentication
 2. Check the [PSAP Connector How-To guide](./how-to.md) for common tasks
-3. Explore the [OpenAPI specification](./api-reference.mdx)
+3. Explore the [OpenAPI specification](./api-reference)
 
 ## Data Model
 
@@ -193,6 +193,6 @@ Version 2.0 introduces:
 ## Next Steps
 
 - Learn [how to perform common tasks](./how-to.md) with PSAP Connector
-- Review the [complete API reference](./api-reference.mdx)
+- Review the [complete API reference](./api-reference)
 - Explore [EMS integration](../ems/overview.md)
 - Understand [Portal URL API](../portal-url/overview.md) for UI integration

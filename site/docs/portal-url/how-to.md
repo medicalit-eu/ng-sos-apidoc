@@ -509,7 +509,7 @@ function EmergencyButton({ type, location, description }) {
 
 ## Additional Resources
 
-- [Portal URL API Reference](./api-reference.mdx)
+- [Portal URL API Reference](./api-reference)
 - [Getting Started Guide](../getting-started.md)
 - [EMS Documentation](../ems/overview.md)
 - [PSAP Connector Documentation](../psap-connector/overview.md)
