@@ -1,93 +1,99 @@
 # NG SOS API Documentation
 
-> **Comprehensive API documentation for the NG SOS emergency services platform**
+> **Documentation repository for NG SOS API platform - for documentation developers and contributors**
 
 [![Documentation](https://img.shields.io/badge/docs-live-brightgreen)](https://medicalit-eu.github.io/ng-sos-apidoc/)
 [![GitHub](https://img.shields.io/github/license/medicalit-eu/ng-sos-apidoc)](LICENSE)
 
-Welcome to the NG SOS API documentation repository. This project provides complete, developer-friendly documentation for all NG SOS servers, including OpenAPI specifications, narrative guides, code examples, and automatically generated SDKs.
+This repository contains the source code and tools for building the NG SOS API documentation. It is designed for **documentation developers, contributors, and maintainers** who want to work on the documentation itself.
 
-## 📚 What's Inside
+**📖 Looking for API documentation?** Visit **[https://medicalit-eu.github.io/ng-sos-apidoc/](https://medicalit-eu.github.io/ng-sos-apidoc/)** for the complete interactive documentation site.
 
-The NG SOS platform consists of three primary APIs:
+## 🎯 What This Repository Does
 
-### [Emergency Message Server (EMS)](docs/ems/overview.md)
-Handles emergency message processing and management from multiple sources including SMS and mobile apps.
-- **Version**: 1.0.0
-- **Use cases**: SMS integration, incident reporting, message routing
+This is a documentation-as-code project that:
 
-### [PSAP Connector Server](docs/psap-connector/overview.md)
-Routes emergency incidents to the appropriate Public Safety Answering Points (PSAPs).
-- **Version**: 2.0.0
-- **Use cases**: Call routing, multi-PSAP coordination, incident management
+- **Maintains OpenAPI specifications** for three NG SOS APIs (EMS, PSAP Connector, Portal URL)
+- **Generates interactive documentation** using Docusaurus and Redocusaurus
+- **Produces SDKs** for TypeScript, C#, and Python from OpenAPI specs
+- **Creates AI-friendly documentation** files (llms.txt, llms-full.txt) for LLM integration
+- **Automatically deploys** to GitHub Pages on every commit to main
+- **Validates specifications** to ensure quality and correctness
 
-### [Portal URL API](docs/portal-url/overview.md)
-Provides deep linking and integration with the NG SOS web portal.
-- **Version**: 1.0.0
-- **Use cases**: URL generation, form pre-filling, iFrame embedding
+## 🛠️ Technologies Used
 
-## 🚀 Quick Start
+This documentation project is built with:
 
-### View Documentation
-
-Visit our **[Interactive Documentation Site](https://medicalit-eu.github.io/ng-sos-apidoc/)** for the complete guide.
-
-### Using the APIs
-
-```bash
-# Example: Query PSAP Connector status
-curl -H "Authorization: Bearer YOUR_API_KEY" \
-  https://api.ng-sos.com/about
-```
-
-See the [Getting Started Guide](docs/getting-started.md) for authentication, error handling, and best practices.
-
-### Using SDKs
-
-We provide officially supported SDKs for:
-- **TypeScript/JavaScript** - `/sdk/typescript/`
-- **C#/.NET** - `/sdk/csharp/`
-- **Python** - `/sdk/python/`
-
-SDKs are automatically generated from our OpenAPI specifications.
+- **[Docusaurus 3.9.2](https://docusaurus.io/)** - Modern static site generator for documentation
+- **[Redocusaurus](https://github.com/rohit-gohri/redocusaurus)** - OpenAPI documentation plugin for Docusaurus  
+- **[OpenAPI Generator](https://openapi-generator.tech/)** - SDK generation from OpenAPI specs
+- **[Node.js 20+](https://nodejs.org/)** - JavaScript runtime for build tools
+- **[TypeScript](https://www.typescriptlang.org/)** - Type-safe configuration
+- **[GitHub Pages](https://pages.github.com/)** - Free hosting for documentation site
+- **[GitHub Actions](https://github.com/features/actions)** - CI/CD automation
 
 ## 📁 Repository Structure
 
+Understanding the repository layout:
+
 ```
 ng-sos-apidoc/
-├── docs/                    # Narrative documentation (Markdown)
-│   ├── index.md            # Documentation landing page
-│   ├── getting-started.md  # Authentication, errors, best practices
-│   ├── ems/                # EMS API guides
-│   ├── psap-connector/     # PSAP Connector guides
-│   └── portal-url/         # Portal URL API guides
-├── specs/                   # Versioned OpenAPI specifications
+├── docs/                           # Source Markdown files for narrative documentation
+│   ├── index.md                   # Main landing page content
+│   ├── getting-started.md         # Getting started guide
+│   ├── ems/                       # EMS API documentation
+│   ├── psap-connector/            # PSAP Connector documentation
+│   └── portal-url/                # Portal URL API documentation
+│
+├── specs/                          # OpenAPI 3.0 specifications (source of truth)
 │   ├── ng-sos-ems-v1.0.0.yaml
 │   ├── ng-sos-psap-connector-v2.0.0.yaml
 │   └── ng-sos-portal-url-v1.0.0.yaml
-├── sdk/                     # Generated SDKs (not committed)
-│   ├── typescript/
-│   ├── csharp/
-│   └── python/
-├── scripts/                 # Build and generation scripts
-│   ├── generate-llms-full.sh
-│   ├── generate-sdks.sh
-│   └── validate-specs.sh
-├── site/                    # Docusaurus documentation website
-├── llms.txt                 # AI assistant map (llms.txt spec)
-├── llms-full.txt           # Complete flattened documentation
-└── .github/workflows/       # CI/CD automation
+│
+├── site/                           # Docusaurus application
+│   ├── docs/                      # Copied from /docs during build
+│   ├── src/                       # React components and pages
+│   ├── static/                    # Static assets (images, files)
+│   ├── docusaurus.config.ts       # Docusaurus configuration
+│   ├── sidebars.ts                # Documentation sidebar structure
+│   └── package.json               # Node.js dependencies
+│
+├── scripts/                        # Build automation scripts
+│   ├── generate-llms-full.sh     # Creates llms-full.txt from all docs
+│   ├── generate-sdks.sh          # Generates SDKs from OpenAPI specs
+│   └── validate-specs.sh         # Validates OpenAPI specifications
+│
+├── sdk/                            # Generated SDKs (in .gitignore, regenerated on build)
+│   ├── typescript/               # TypeScript/JavaScript SDK
+│   ├── csharp/                   # C#/.NET SDK
+│   └── python/                   # Python SDK
+│
+├── .github/workflows/              # GitHub Actions CI/CD
+│   └── build.yml                 # Build and deploy pipeline
+│
+├── llms.txt                        # AI assistant navigation map
+├── llms-full.txt                  # Complete flattened documentation for LLMs
+└── README.md                       # This file
 ```
 
-## 🔧 Development
+### Key Directories Explained
+
+- **`/docs`** - Source of truth for narrative documentation. Edit Markdown files here.
+- **`/specs`** - Source of truth for API contracts. Edit OpenAPI YAML files here.
+- **`/site`** - Docusaurus application. Contains configuration, theme, and React components.
+- **`/scripts`** - Automation scripts for building, validating, and generating artifacts.
+- **`/sdk`** - Auto-generated, not committed to git. Regenerated from specs on each build.
+
+## 🚀 Getting Started for Contributors
 
 ### Prerequisites
 
-- Node.js 20 or later
-- Bash (for scripts)
-- (Optional) OpenAPI Generator for SDK generation
+- **Node.js 20+** - Required for Docusaurus
+- **Bash** - For running build scripts (pre-installed on macOS/Linux, use WSL or Git Bash on Windows)
+- **Git** - For version control
+- **(Optional) OpenAPI Generator CLI** - For SDK generation (installed automatically by script if needed)
 
-### Local Development
+### Initial Setup
 
 1. **Clone the repository**
    ```bash
@@ -101,105 +107,233 @@ ng-sos-apidoc/
    npm install
    ```
 
-3. **Start development server**
+3. **Start local development server**
    ```bash
    npm start
    ```
    
-   The documentation site will open at `http://localhost:3000`
+   The documentation site will open at `http://localhost:3000` with hot reloading enabled.
 
-### Building Documentation
+### Development Workflow
+
+#### Editing Documentation
+
+1. **Edit Markdown files** in `/docs` directory
+   ```bash
+   # Example: Edit EMS overview
+   vim docs/ems/overview.md
+   ```
+
+2. **Preview changes** - Docusaurus will auto-reload at `http://localhost:3000`
+
+3. **Commit your changes**
+   ```bash
+   git add docs/
+   git commit -m "Update EMS documentation"
+   git push
+   ```
+
+#### Editing OpenAPI Specifications
+
+1. **Edit YAML files** in `/specs` directory
+   ```bash
+   # Example: Update PSAP Connector API
+   vim specs/ng-sos-psap-connector-v2.0.0.yaml
+   ```
+
+2. **Validate your changes**
+   ```bash
+   bash scripts/validate-specs.sh
+   ```
+
+3. **Preview OpenAPI docs** at `http://localhost:3000` - Redocusaurus renders them automatically
+
+#### Updating Docusaurus Configuration
+
+- **`site/docusaurus.config.ts`** - Site configuration, navbar, footer, plugins
+- **`site/sidebars.ts`** - Sidebar navigation structure
+- **`site/src/`** - Custom React components and pages
+
+## 🔨 Build Scripts
+
+The repository includes several automation scripts in the `/scripts` directory:
+
+### `validate-specs.sh`
+
+Validates all OpenAPI specifications for correctness.
 
 ```bash
-# Generate llms-full.txt
-bash scripts/generate-llms-full.sh
-
-# Validate OpenAPI specs
 bash scripts/validate-specs.sh
+```
 
-# Generate SDKs (requires OpenAPI Generator)
+**What it does:**
+- Checks YAML syntax
+- Validates against OpenAPI 3.0 specification
+- Reports any errors or warnings
+
+**When to use:** Before committing changes to OpenAPI specs
+
+### `generate-llms-full.sh`
+
+Generates `llms-full.txt` - a flattened version of all documentation for LLM context.
+
+```bash
+bash scripts/generate-llms-full.sh
+```
+
+**What it does:**
+- Concatenates all Markdown files from `/docs`
+- Includes OpenAPI specifications
+- Creates a single file for AI assistant consumption
+
+**When to use:** This runs automatically in CI, but you can run it locally to test
+
+### `generate-sdks.sh`
+
+Generates SDKs for TypeScript, C#, and Python from OpenAPI specifications.
+
+```bash
 bash scripts/generate-sdks.sh
+```
 
-# Build Docusaurus site
+**What it does:**
+- Installs OpenAPI Generator CLI if not present
+- Generates SDK for each language from each spec
+- Outputs to `/sdk/{language}/{api-name}/`
+
+**When to use:** When you want to test SDK generation locally (not required for documentation work)
+
+**Note:** SDKs are in `.gitignore` and are not committed to the repository.
+
+## 🔄 CI/CD Pipeline
+
+Every commit to `main` triggers an automated workflow (`.github/workflows/build.yml`):
+
+1. **Checkout code** - Gets latest version
+2. **Setup Node.js 20** - Installs build environment
+3. **Install dependencies** - Runs `npm install` in `/site`
+4. **Generate llms-full.txt** - Creates AI-friendly documentation
+5. **Copy documentation** - Moves `/docs` to `/site/docs`
+6. **Build Docusaurus** - Generates static site
+7. **Deploy to GitHub Pages** - Publishes to https://medicalit-eu.github.io/ng-sos-apidoc/
+
+**Build time:** Approximately 2-3 minutes
+
+**Testing:** Pull requests also trigger the build (but don't deploy) to catch errors early.
+
+## 📝 Contributing Guidelines
+
+### For Documentation Writers
+
+1. **Fork the repository**
+2. **Create a feature branch** (`git checkout -b feature/improve-ems-docs`)
+3. **Edit Markdown files** in `/docs`
+   - Use clear, concise language
+   - Include code examples where appropriate
+   - Keep paragraphs to 3-5 sentences
+   - Follow existing formatting conventions
+4. **Test locally** with `npm start` in `/site`
+5. **Commit your changes** (`git commit -am 'Improve EMS authentication docs'`)
+6. **Push to your fork** (`git push origin feature/improve-ems-docs`)
+7. **Open a Pull Request**
+
+### For API Specification Maintainers
+
+1. **Edit OpenAPI YAML files** in `/specs`
+2. **Validate changes** with `bash scripts/validate-specs.sh`
+3. **Test rendering** in local Docusaurus (Redocusaurus will show changes)
+4. **Follow semantic versioning** for API versions
+5. **Update version in filename** if changing version (e.g., `v2.0.0` → `v2.1.0`)
+6. **Commit and create PR** as above
+
+### Documentation Standards
+
+- **Markdown:** Use standard Markdown with Docusaurus extensions
+- **Code blocks:** Always specify language (```bash, ```typescript, etc.)
+- **Links:** Use relative links for internal docs, absolute for external
+- **Images:** Store in `/site/static/img` and reference with `/img/...`
+- **OpenAPI:** Follow OpenAPI 3.0 specification strictly
+
+## 🤖 AI-Friendly Documentation
+
+This repository implements the **[llms.txt specification](https://llmstxt.org/)** for LLM integration:
+
+- **`llms.txt`** - High-level navigation map for AI assistants (manually maintained)
+- **`llms-full.txt`** - Complete flattened documentation (auto-generated from all docs)
+
+These files enable AI assistants (GitHub Copilot, ChatGPT, Claude, etc.) to accurately answer questions about the NG SOS APIs.
+
+**For maintainers:** Update `llms.txt` when adding new major sections. The `llms-full.txt` is regenerated automatically on each build.
+
+## 🏗️ Building for Production
+
+To build the documentation site locally:
+
+```bash
+# From repository root
 cd site
 npm run build
 ```
 
-## 🤖 AI-Friendly Documentation
+The static site is generated in `site/build/` and can be served with:
 
-This repository includes special files for AI assistants and LLM integration:
+```bash
+npm run serve
+```
 
-- **`llms.txt`**: High-level map following the [llms.txt specification](https://llmstxt.org/)
-- **`llms-full.txt`**: Complete flattened documentation for comprehensive AI context
+**Note:** In production, GitHub Actions handles all building and deployment automatically.
 
-These files enable AI assistants like GitHub Copilot and ChatGPT to accurately answer questions about the NG SOS APIs.
+## 🔍 Troubleshooting
 
-## 🔄 Continuous Integration
+### Docusaurus won't start
 
-Every push to `main` automatically:
-1. Validates all OpenAPI specifications
-2. Generates `llms-full.txt`
-3. Builds the Docusaurus documentation site
-4. Deploys to GitHub Pages
+```bash
+# Clear cache and reinstall
+cd site
+rm -rf node_modules package-lock.json
+npm install
+npm start
+```
 
-See [`.github/workflows/build.yml`](.github/workflows/build.yml) for details.
+### OpenAPI specs not rendering
 
-## 📖 OpenAPI Specifications
+- Check YAML syntax with `bash scripts/validate-specs.sh`
+- Ensure specs are valid OpenAPI 3.0
+- Restart Docusaurus dev server
 
-All API specifications are in the [`/specs`](specs/) directory:
+### Build fails in CI
 
-- [EMS v1.0.0](specs/ng-sos-ems-v1.0.0.yaml) - Emergency Message Server
-- [PSAP Connector v2.0.0](specs/ng-sos-psap-connector-v2.0.0.yaml) - PSAP routing
-- [Portal URL v1.0.0](specs/ng-sos-portal-url-v1.0.0.yaml) - Web portal integration
+- Check GitHub Actions logs in the repository
+- Test build locally with `npm run build`
+- Ensure all internal links are valid
 
-These specs are the source of truth for:
-- Interactive documentation
-- SDK generation
-- API contract testing
-- Client integration
+## 📚 Useful Resources
 
-## 🤝 Contributing
+### Documentation Tools
+- [Docusaurus Documentation](https://docusaurus.io/docs)
+- [Redocusaurus Plugin](https://github.com/rohit-gohri/redocusaurus)
+- [OpenAPI Specification](https://spec.openapis.org/oas/v3.0.0)
+- [OpenAPI Generator](https://openapi-generator.tech/)
 
-We welcome contributions! To update documentation:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/improve-docs`)
-3. Make your changes to:
-   - Markdown files in `/docs` for narrative documentation
-   - YAML files in `/specs` for API specifications
-4. Commit your changes (`git commit -am 'Improve EMS documentation'`)
-5. Push to the branch (`git push origin feature/improve-docs`)
-6. Open a Pull Request
-
-### Documentation Guidelines
-
-- Use clear, concise language
-- Include code examples for complex concepts
-- Keep paragraphs to 3-5 sentences
-- Test all code examples
-- Follow existing formatting conventions
+### Writing Guides
+- [Markdown Guide](https://www.markdownguide.org/)
+- [OpenAPI Style Guide](https://github.com/OAI/OpenAPI-Style-Guide)
+- [Technical Writing Best Practices](https://developers.google.com/tech-writing)
 
 ## 📄 License
 
 This documentation is maintained by Medical IT EU.
 
-## 📧 Support
+## 📧 Contact & Support
 
-For questions, issues, or feedback:
+**For documentation contributors:**
+- **GitHub Issues:** [Open an issue](https://github.com/medicalit-eu/ng-sos-apidoc/issues) for bugs or suggestions
+- **Pull Requests:** Submit PRs for documentation improvements
+- **Email:** mdybal@medicalit.eu
 
-- **Email**: mdybal@medicalit.eu
-- **GitHub Issues**: [Open an issue](https://github.com/medicalit-eu/ng-sos-apidoc/issues)
-- **Documentation**: [View docs](https://medicalit-eu.github.io/ng-sos-apidoc/)
-
-## 🎯 Project Goals
-
-This documentation project aims to:
-
-1. ✅ Provide clear, comprehensive API documentation
-2. ✅ Support rapid client integration with generated SDKs
-3. ✅ Enable AI-assisted development with llms.txt
-4. ✅ Maintain documentation alongside API changes
-5. ✅ Follow documentation best practices and conventions
+**For API users:**
+- Visit the [live documentation](https://medicalit-eu.github.io/ng-sos-apidoc/)
+- Check the [Getting Started Guide](https://medicalit-eu.github.io/ng-sos-apidoc/getting-started)
 
 ---
 
