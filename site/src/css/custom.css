@@ -34,3 +34,8 @@
   width: 100% !important;
   max-width: 100% !important;
 }
+
+/* Increase logo size to match menu text */
+.navbar__logo img {
+  height: 2.5rem;
+}
