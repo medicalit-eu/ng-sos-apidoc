@@ -11,8 +11,8 @@
 ## API Reference
 
 - EMS OpenAPI Spec (v1.0.0): https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-ems-v1.0.0.yaml
-- PSAP Connector OpenAPI Spec (v2.0.0): https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-psap-connector-v2.0.0.yaml
 - Portal URL OpenAPI Spec (v1.0.0): https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-portal-url-v1.0.0.yaml
+- PSAP Connector OpenAPI Spec (v2.0.0): https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-psap-connector-v2.0.0.yaml
 
 ## Guides
 

@@ -37,8 +37,9 @@ jobs:
           cd site
           npm install
 
-      - name: Generate llms-full.txt
+      - name: Generate LLMS files
         run: |
+          bash scripts/generate-llms.sh
           bash scripts/generate-llms-full.sh
 
       - name: Copy LLMS files to site static directory
