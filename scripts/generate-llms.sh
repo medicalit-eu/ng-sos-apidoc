@@ -37,10 +37,8 @@ for spec_file in "$ROOT_DIR/specs"/*.yaml; do
     if [ -f "$spec_file" ]; then
         spec_name=$(basename "$spec_file")
         # Extract version from filename (e.g., ng-sos-ems-v1.0.0.yaml -> v1.0.0)
-        version=$(echo "$spec_name" | grep -oP 'v[0-9]+\.[0-9]+\.[0-9]+' || echo "")
-        
-        # Extract title from spec
-        title=$(grep "^  title:" "$spec_file" | sed 's/^  title: *//' | head -1)
+        # Use sed for better portability across macOS and Linux
+        version=$(echo "$spec_name" | sed -n 's/.*\(v[0-9][0-9]*\.[0-9][0-9]*\.[0-9][0-9]*\).*/\1/p')
         
         # Determine API name for the link text
         if [[ "$spec_name" == *"ems"* ]]; then
@@ -105,4 +103,11 @@ EOF
 echo ""
 echo "✓ Successfully generated llms.txt"
 echo "  Output file: $OUTPUT_FILE"
-echo "  File size: $(du -h "$OUTPUT_FILE" | cut -f1)"
+# Use wc for better portability, convert bytes to human-readable format
+file_size=$(wc -c < "$OUTPUT_FILE" | tr -d ' ')
+if [ "$file_size" -ge 1024 ]; then
+    file_size_kb=$((file_size / 1024))
+    echo "  File size: ${file_size_kb}K"
+else
+    echo "  File size: ${file_size} bytes"
+fi
