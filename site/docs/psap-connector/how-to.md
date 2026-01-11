@@ -469,7 +469,7 @@ for incident in incidents:
 
 ## Additional Resources
 
-- [PSAP Connector API Reference](./api-reference)
+- [PSAP Connector OpenAPI Specification](https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-psap-connector-v2.0.0.yaml)
 - [Getting Started Guide](../getting-started.md)
 - [EMS Documentation](../ems/overview.md)
 
@@ -477,4 +477,4 @@ for incident in incidents:
 
 For technical support:
 - Email: mdybal@medicalit.eu
-
+- GitHub: [medicalit-eu/ng-sos-apidoc](https://github.com/medicalit-eu/ng-sos-apidoc)

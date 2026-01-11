@@ -76,7 +76,7 @@ To use the Portal URL API:
 
 1. Review the [Getting Started guide](../getting-started.md) for authentication
 2. Check the [Portal URL How-To guide](./how-to.md) for URL generation
-3. Explore the [OpenAPI specification](./api-reference)
+3. Explore the [OpenAPI specification](https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-portal-url-v1.0.0.yaml)
 
 ## URL Structure
 
@@ -223,5 +223,5 @@ Track Portal URL API usage:
 ## Next Steps
 
 - Learn [how to generate URLs](./how-to.md) for different scenarios
-- Review the [complete API reference](./api-reference)
+- Review the [complete API reference](https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-portal-url-v1.0.0.yaml)
 - Explore [EMS](../ems/overview.md) and [PSAP Connector](../psap-connector/overview.md) APIs

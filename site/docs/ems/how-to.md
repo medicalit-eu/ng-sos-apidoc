@@ -254,7 +254,7 @@ Test your integration thoroughly:
 
 ## Additional Resources
 
-- [EMS API Reference](./api-reference)
+- [EMS OpenAPI Specification](https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/specs/ng-sos-ems-v1.0.0.yaml)
 - [Getting Started Guide](../getting-started.md)
 - [PSAP Connector Documentation](../psap-connector/overview.md)
 
@@ -262,4 +262,4 @@ Test your integration thoroughly:
 
 For technical support or questions:
 - Email: mdybal@medicalit.eu
-
+- GitHub Issues: [medicalit-eu/ng-sos-apidoc](https://github.com/medicalit-eu/ng-sos-apidoc)
