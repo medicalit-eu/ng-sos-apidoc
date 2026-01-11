@@ -73,13 +73,13 @@ Download the complete OpenAPI 3.0 specifications for programmatic access or tool
 
 NG SOS API documentation is optimized for Large Language Model (LLM) integration, enabling AI-powered development assistance:
 
-**[llms.txt](https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/llms.txt)** - Lightweight navigation map
+**[llms.txt](https://medicalit-eu.github.io/ng-sos-apidoc/llms.txt)** - Lightweight navigation map
 - High-level structure and overview of all APIs
 - Links to key documentation sections
 - Ideal for quick AI assistant context loading
 - Follows the [llms.txt specification](https://llmstxt.org/)
 
-**[llms-full.txt](https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/llms-full.txt)** - Complete documentation bundle
+**[llms-full.txt](https://medicalit-eu.github.io/ng-sos-apidoc/llms-full.txt)** - Complete documentation bundle
 - Flattened version of all narrative documentation
 - Includes all OpenAPI specifications
 - Full API endpoint descriptions and examples
