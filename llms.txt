@@ -39,7 +39,7 @@
 
 ## Resources
 
-- Full Documentation (llms-full.txt): https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/llms-full.txt
+- Full Documentation (llms-full.txt): https://medicalit-eu.github.io/ng-sos-apidoc/llms-full.txt
 - Interactive Documentation: https://medicalit-eu.github.io/ng-sos-apidoc/
 
 ## Contact
