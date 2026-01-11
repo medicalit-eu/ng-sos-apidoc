@@ -213,9 +213,10 @@ Every commit to `main` triggers an automated workflow (`.github/workflows/build.
 2. **Setup Node.js 20** - Installs build environment
 3. **Install dependencies** - Runs `npm install` in `/site`
 4. **Generate llms-full.txt** - Creates AI-friendly documentation
-5. **Copy documentation** - Moves `/docs` to `/site/docs`
-6. **Build Docusaurus** - Generates static site
-7. **Deploy to GitHub Pages** - Publishes to https://medicalit-eu.github.io/ng-sos-apidoc/
+5. **Copy LLMS files** - Moves `llms.txt` and `llms-full.txt` to `/site/static/`
+6. **Copy documentation** - Moves `/docs` to `/site/docs`
+7. **Build Docusaurus** - Generates static site
+8. **Deploy to GitHub Pages** - Publishes to https://medicalit-eu.github.io/ng-sos-apidoc/
 
 **Build time:** Approximately 2-3 minutes
 
@@ -264,6 +265,14 @@ This repository implements the **[llms.txt specification](https://llmstxt.org/)*
 These files enable AI assistants (GitHub Copilot, ChatGPT, Claude, etc.) to accurately answer questions about the NG SOS APIs.
 
 **For maintainers:** Update `llms.txt` when adding new major sections. The `llms-full.txt` is regenerated automatically on each build.
+
+**Accessing LLMS files on the web:**
+- **Live site:** https://medicalit-eu.github.io/ng-sos-apidoc/llms.txt
+- **Live site:** https://medicalit-eu.github.io/ng-sos-apidoc/llms-full.txt
+- **Repository:** https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/llms.txt
+- **Repository:** https://github.com/medicalit-eu/ng-sos-apidoc/blob/main/llms-full.txt
+
+The files are automatically deployed to the website during the build process and are available at the root of the site.
 
 ## 🏗️ Building for Production
 
