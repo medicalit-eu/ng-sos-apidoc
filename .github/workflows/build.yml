@@ -41,6 +41,11 @@ jobs:
         run: |
           bash scripts/generate-llms-full.sh
 
+      - name: Copy LLMS files to site static directory
+        run: |
+          cp llms.txt site/static/
+          cp llms-full.txt site/static/
+
       - name: Copy documentation to site
         run: |
           cp -r docs/* site/docs/
