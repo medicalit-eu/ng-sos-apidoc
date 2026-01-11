@@ -104,7 +104,7 @@ echo ""
 echo "✓ Successfully generated llms.txt"
 echo "  Output file: $OUTPUT_FILE"
 # Use wc for better portability, convert bytes to human-readable format
-file_size=$(wc -c < "$OUTPUT_FILE" | tr -d ' ')
+file_size=$(wc -c < "$OUTPUT_FILE" | awk '{print $1}')
 if [ "$file_size" -ge 1024 ]; then
     file_size_kb=$((file_size / 1024))
     echo "  File size: ${file_size_kb}K"
